@@ -3,6 +3,7 @@ Cloudspokes::Application.routes.draw do
   match "/:id", to: "content#show", as: "content"
   
   get 'challenges/index'
+  get 'members/index'
   get 'sessions/login'
   get 'sessions/sfdcauth'
   match '/auth/:provider/callback', :to => 'sessions#create'
