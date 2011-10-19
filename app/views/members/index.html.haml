@@ -1,3 +1,29 @@
+.page-heading
+  %h2.melbourne
+    %cufon.cufon.cufon-canvas{:alt => "Members", :style => "width: 150px; height: 45px;"}
+      %canvas{:width => "167", :height => "49", :style => "width: 167px; height: 49px; top: -5px; left: -2px;"}
+      %cufontext= "Members"
+
+.help-nav
+  .sort.fl
+    %ul
+      %li= "SORT"
+      %li
+        %a{:href => "javascript:__doPostBack('ctl00$Body$lnkName','')", :id => "ctl00_Body_lnkName"}>
+          name
+      %li
+        %a#ctl00_Body_lnkHighestWinRate.dd{:href => "javascript:__doPostBack('ctl00$Body$lnkHighestWinRate','')"}
+          highest win rate
+      %li
+        %a#ctl00_Body_lnkMostActive{:href => "javascript:__doPostBack('ctl00$Body$lnkMostActive','')"}
+          most active
+  #search
+    %fieldset
+      %input#ctl00_Body_txtname{:type => "text", :value => "search members", :title => "search members", :class => "field blink", :name => "ctl00$Body$txtname"}
+        %span#ctl00_Body_regUsername{:style => "color:Red;display:none;"}
+        #ctl00_Body_vsRegister{:style => "color:Red;display:none;"}
+          %input.submit.notext#ctl00_Body_btnGo{:type => "submit", :onclick => "javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Body$btnGo&quot;, &quot;&quot;, true, &quot;search&quot;, &quot;&quot;, false, false))", :value =>"go", :name =>"ctl00$Body$btnGo"}
+
 .content-wrapper.two-cols-bg
   .widecolumn
     .list-members
