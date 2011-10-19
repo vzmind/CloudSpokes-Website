@@ -1,19 +1,19 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.0'
-
 gem 'compass', git: 'git://github.com/chriseppstein/compass.git'
-
 gem 'databasedotcom'
+gem 'haml'
+
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.6'
-
   gem 'guard'
   gem 'guard-bundler'
   gem 'guard-rspec'
   gem 'growl'
   gem 'rb-fsevent'
+  gem 'ruby-debug19'
 end
 
 group :test do
