@@ -1,0 +1,1097 @@
+/*
+	Globals
+*/
+
+* { padding: 0; margin: 0; outline: 0; }
+body { font: 13px/16px Arial, Sans-Serif; color: #666; background: #d1e7ed url(http://cloudspokes.s3.amazonaws.com/background.gif) repeat-x 0 0; text-align: left; }
+
+a { color: #0099ff; cursor: pointer; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+a img { border: 0; }
+a.img img { display: block; border: 1px solid #ccc; }
+
+input, select, textarea { font: 11px Arial, Sans-Serif; color: #000; }
+.field, textarea { background: #fff; border: 1px solid #ccc; }
+
+input.checkbox, input.radio { float: left; display: inline; height: 13px; width: 13px; margin: 2px 5px 0 0; }
+label.checkbox, label.radio { float: left; display: inline; line-height: 13px; }
+
+
+input.submit { border: 0; cursor: pointer; }
+
+textarea { overflow: auto; }
+fieldset { border: 0; padding-bottom: 15px; }
+
+ul, ol { list-style: none outside none; }
+
+
+.ar { display: block; text-align: right; }
+.al { display: block; text-align: left; }
+.ac { display: block; text-align: center; }
+
+.fr { float: right !important; display: inline; }
+.fl { float: left !important; display: inline; }
+
+.cl { display: block; clear: both; height: 0; font-size: 0; line-height: 0; text-indent: -4000px; }
+.notext { font-size: 0; line-height: 0; }
+.hidden { display: none; }
+.rel { position: relative; }
+
+.shell { width: 980px; margin: 0 auto; }
+
+h2, h3, h4, h5 { }
+h2 {}
+h3 { font-size: 20px; font-weight: normal; color: #6699C9; margin-bottom: 10px; }
+h4 { font-size: 17px; font-weight: normal; color: #000; }
+h4 a { color: #000; }
+h5 {}
+
+p { padding-bottom: 15px; }
+small { font-size: 10px; }
+
+.brown { color: #df9f2d; }
+.blue { color: #649ada; }
+.red { color: #bb3d2b; }
+.grey { color: #999; }
+.yellow { color: #fadf43; }
+.light-blue { color: #54b1b6; }
+.pink { color: #ac85ce; }
+.orange { color: #e44a1b; }
+.green { color: #79c844; }
+.light-green { color: #89bc92; }
+.dark-green { color: #548d30; }
+
+.button { margin-right: 5px; }
+.button,
+.button span { float: left; display: inline; height: 26px; line-height: 26px; font-size: 14px; color: #fff; padding-left: 44px; background: url(http://cloudspokes.s3.amazonaws.com/button-1.gif) no-repeat 0 0; }
+.button span { padding-left: 0; padding-right: 44px; background-position: right 0; }
+
+.button:hover,
+.button:hover span { text-decoration: none; background-position: 0 -26px; }
+.button:hover span { background-position: right -26px; }
+
+
+.button input { float: left; display: inline; height: 26px; line-height: 26px; font-size: 14px; color: #fff; padding-left: 44px; background: url(http://cloudspokes.s3.amazonaws.com/button-1.gif) no-repeat 0 0; }
+.button input { padding-left: 0; padding-right: 44px; background-position: right 0; }
+
+
+/*
+	Header
+*/
+
+#header { position: relative; z-index: 2; height: 100%; }
+
+/*
+h1#logo { height: 60px; width: 153px; padding: 52px 10px 0 0; }
+h1#logo a { display: block; height: 60px; background: url(http://cloudspokes.s3.amazonaws.com/logo.png); }
+*/
+
+h1#logo { height: 97px; width: 125px; padding: 10px 10px 10px 30px; }
+h1#logo a { display: block; height: 97px; width:125px; background: url(http://cloudspokes.s3.amazonaws.com/CloudSpokes.png); }
+
+#logo2{ float: left;height: 37px; width:176px;  background: url(http://cloudspokes.s3.amazonaws.com/CloudSpokes2.png); background-repeat: no-repeat;}
+
+
+#navigation { float: left; display: inline; height: 34px; padding: 15px 0 0; }
+#navigation ul { }
+#navigation ul li { float: left; display: inline; font-size: 17px; margin-right: 12px; }
+
+#navigation ul li a,
+#navigation ul li a span { float: left; display: inline; height: 34px; line-height: 34px; background: url(http://cloudspokes.s3.amazonaws.com/nav-sprite.gif) no-repeat 0 0; padding-left: 10px; color: #6699c9; }
+#navigation ul li a span { padding-left: 0; padding-right: 10px; background-position: right 0; }
+
+#navigation ul li a:hover,
+#navigation ul li a:hover span, 
+#navigation ul li a.active,
+#navigation ul li a.active span { color: #fff; background-position: 0 -34px; text-decoration: none; }
+
+#navigation ul li a:hover span,
+#navigation ul li a.active span { background-position: right -34px; }
+
+
+#utility-nav ul { float: right; display: inline; padding-top: 74px; }
+#utility-nav ul li { float: left; display: inline; margin-left: 25px; line-height: 20px; font-size: 17px; color: #8c8c8c; }
+#utility-nav ul li a { color: #8c8c8c; }
+#utility-nav ul li a:hover,
+#utility-nav ul li a.active,
+#utility-nav ul li a.trigger { color: #35adfa; text-decoration: none; }
+
+trigger1 {  }
+/*
+	Popup
+*/
+
+.popup { width: 305px; position: absolute; display: none; z-index:-1; overflow:hidden;}
+.popup fieldset { padding: 0; }
+.popup .tab { margin: 0 13px 0 auto; height: 35px; font-size: 17px; text-align: center; color: #000; line-height: 35px; }
+.popup .t { height: 4px; background: url(http://cloudspokes.s3.amazonaws.com/login-t.png) no-repeat 0 0; }
+.popup .b { height: 6px; background: url(http://cloudspokes.s3.amazonaws.com/login-b.png) no-repeat 0 0; }
+.popup .cnt { background: url(http://cloudspokes.s3.amazonaws.com/login-bg.png) repeat-y 0 0; height: 100%; }
+.popup form { padding: 12px; height: 100%; position: relative; }
+.popup p { padding-bottom: 5px; color: #000c4c; }
+.popup p.terms { color: #333; }
+
+.popup .error { color: #ff3300 !important; } 
+
+.popup .field { height: 16px; width: 260px; background: url(http://cloudspokes.s3.amazonaws.com/login-field.gif) no-repeat 0 0; position: relative; overflow: hidden; border: 0; margin-bottom: 10px; padding: 5px 10px; }
+.popup .field input { font-size: 14px; border: 0; background: none; color: #999; font-style: italic; width: 100%; display: block; background-image: url(http://cloudspokes.s3.amazonaws.com/login-t.png); background-repeat:repeat; }
+
+.popup .submit { float: left; display: inline; height: 26px; width: 75px; text-align: center; background: url(http://cloudspokes.s3.amazonaws.com/login-button.gif); font-size: 15px; color: #fff; padding-bottom: 2px; margin-right: 10px; }
+.popup span.fl,
+.popup span.fr { line-height: 26px; }
+
+.popup .alternative { background: #e7edea; padding: 10px 10px 4px; height: 100%; margin: 0 1px; }
+.popup .alternative li { float: left; display: inline; line-height: 20px; background-repeat: no-repeat; background-position: 0 0; height: 24px; margin-right: 12px; }
+.popup .alternative li.last { margin: 0; }
+.popup .alternative li a { color: #0099ff; }
+.popup .alternative li.google { padding-left: 26px; background-image: url(http://cloudspokes.s3.amazonaws.com/icon-google-login.gif); }
+.popup .alternative li.facebook { padding-left: 29px; background-image: url(http://cloudspokes.s3.amazonaws.com/icon-facebook-login.gif); }
+.popup .alternative li.twitter { padding-left: 27px; background-image: url(http://cloudspokes.s3.amazonaws.com/twitter-login.gif); }
+.popup .alternative li.boxnet {margin-left:5px; padding-left: 22px; background-image: url(http://cloudspokes.s3.amazonaws.com/icon-boxnet-login.png); }
+.popup .alternative li.github {margin-left:22px; padding-left: 24px; background-image: url(http://cloudspokes.s3.amazonaws.com/github.png); }
+.popup .alternative li.sfdc {margin-left:22px; padding-left: 24px; background-image: url(http://cloudspokes.s3.amazonaws.com/sfdc.jpg); }
+
+
+/* 	Login Popup  */
+
+#login-popup  { top: 67px; right: 55px; }
+#login-popup .tab { width: 54px; background: url(http://cloudspokes.s3.amazonaws.com/login-tab.png); }
+
+/* 	Signup Popup  */
+
+#signup-popup { top: 67px; right: -24px; }
+#signup-popup .tab { width: 75px; background: url(http://cloudspokes.s3.amazonaws.com/signup-tab.png); }
+
+#signup-terms { display: none; }
+#signup-terms .holder { border: 1px solid #c3c3c3; height: 100px; overflow-y: auto; margin-bottom: 10px; }
+#signup-terms .holder .spacer { padding: 5px; }
+#signup-terms h4  { font-size: 14px; font-weight: bold; color: #333; }
+#signup-terms .holder .spacer ul { padding-bottom: 5px; color: #000c4c; }
+#signup-terms .holder .spacer b { padding-bottom: 5px; color: #000c4c; }
+
+#signup-terms .checkbox { margin-bottom: 10px; }
+
+
+
+/*
+	Content
+*/
+
+#content { background: #fff; border-bottom: 9px solid #456179; position: relative; z-index: 1; }
+
+/*
+	Dashboard
+*/
+
+#dashboard { height: 348px; width: 980px; background: url(http://cloudspokes.s3.amazonaws.com/dashboard.gif) no-repeat 0 0; border-top: 9px solid #456179; }
+
+#dashboard .trans-box { float: left; display: inline; width: 430px; padding: 40px 0 0 40px; color: #fff; }
+#dashboard .trans-box .box-t { height: 10px; width: 430px; background: url(http://cloudspokes.s3.amazonaws.com/dashboard-trans-t.png); }
+#dashboard .trans-box .box-b { height: 10px; width: 430px; background: url(http://cloudspokes.s3.amazonaws.com/dashboard-trans-b.png); }
+#dashboard .trans-box .box-cnt { background: url(http://cloudspokes.s3.amazonaws.com/dashboard-trans-bg.png); padding: 20px 20px 10px; height: 100%; }
+
+#dashboard .trans-box h2 { font-size: 70px; line-height: 100%; color: #fff; font-weight: 400; }
+#dashboard .trans-box p { width: 360px; font-size: 15px; line-height: 22px; }
+
+#dashboard .button-blue { float: left; display: inline; height: 49px; width: 138px; text-align: center; line-height: 49px; color: #fff; font-size: 16px; background: url(http://cloudspokes.s3.amazonaws.com/button-blue.png); margin-right: 10px; }
+#dashboard .button-blue:hover { background-position: 0 -49px; text-decoration: none; }
+
+#dashboard .button-grey { float: left; display: inline; height: 47px; width: 135px; text-align: center; line-height: 47px; color: #0099FF; font-size: 16px; background: url(http://cloudspokes.s3.amazonaws.com/button-grey.png); }
+#dashboard .button-grey:hover { background-position: 0 -47px; text-decoration: none; }
+
+#dashboard .pinned-info { float: right; display: inline; width: 480px; height: 210px; position: relative; margin: 0 20px 0 0; }
+#dashboard .pinned-info .label { position: absolute; width: 130px; padding: 10px 0 5px; background: #fff; text-align: center; display: none; box-shadow: 0 0  1px #000; -moz-box-shadow: 0 0 7px #000; }
+#dashboard .pinned-info .label-1 { display: block; top: 0; left: 0; }
+#dashboard .pinned-info .label .pin { position: absolute; }
+#dashboard .pinned-info .label strong { display: block; font-size: 24px; line-height: 100%; margin-bottom: 5px; }
+#dashboard .pinned-info .label small { font-size: 14px; color: #666; }
+
+#dashboard .pinned-info .label-1 { display: block; top: 30px; left: 20px; -moz-transform: rotate(-5deg); -webkit-transform: rotate(-5deg); -o-transform: rotate(-5deg); -ms-transform: rotate(-5deg); tranform: rotate(-5deg); }
+#dashboard .pinned-info .label-1 strong { color: #b27e26; }
+#dashboard .pinned-info .label-red .pin { top: -15px; left: 65px; height: 23px; width: 18px; background: url(http://cloudspokes.s3.amazonaws.com/red-pin.png); }
+
+#dashboard .pinned-info .label-2 { display: block; top: 30px; left: 175px; -moz-transform: rotate(2deg); -webkit-transform: rotate(2deg); -o-transform: rotate(2deg); -ms-transform: rotate(2deg); tranform: rotate(2deg); }
+#dashboard .pinned-info .label-2 strong { color: #507abf; }
+#dashboard .pinned-info .label-blue .pin { top: -17px; left: 58px; height: 29px; width: 20px; background: url(http://cloudspokes.s3.amazonaws.com/blue-pin.png); }
+
+
+#dashboard .pinned-info .label-3 { display: block; top: 30px; left: 330px; -moz-transform: rotate(-2deg); -webkit-transform: rotate(-2deg); -o-transform: rotate(-2deg); -ms-transform: rotate(-2deg); tranform: rotate(-2deg); }
+#dashboard .pinned-info .label-3 strong { color: #79ac7e; }
+#dashboard .pinned-info .label-green .pin { top: -13px; left: 60px; height: 21px; width: 22px; background: url(http://cloudspokes.s3.amazonaws.com/green-pin.png); }
+
+#dashboard .pinned-info .label-4 { display: block; top: 130px; left: 20px; -moz-transform: rotate(5deg); -webkit-transform: rotate(5deg); -o-transform: rotate(5deg); -ms-transform: rotate(5deg); tranform: rotate(5deg); }
+#dashboard .pinned-info .label-4 strong { color: #4b9da0; }
+
+#dashboard .pinned-info .label-5 { display: block; top: 130px; left: 175px; -moz-transform: rotate(2deg); -webkit-transform: rotate(2deg); -o-transform: rotate(2deg); -ms-transform: rotate(2deg); tranform: rotate(2deg); }
+#dashboard .pinned-info .label-5 strong { color: #9f2e24; }
+#dashboard .pinned-info .label-white .pin { top: -13px; left: 60px; height: 22px; width: 19px; background: url(http://cloudspokes.s3.amazonaws.com/white-pin.png); }
+
+#dashboard .pinned-info .label-6 { display: block; top: 130px; left: 330px; -moz-transform: rotate(-2deg); -webkit-transform: rotate(-2deg); -o-transform: rotate(-2deg); -ms-transform: rotate(-2deg); tranform: rotate(-2deg); }
+#dashboard .pinned-info .label-6 strong { color: #946cbd; }
+#dashboard .pinned-info .label-yellow .pin { top: -13px; left: 60px; height: 22px; width: 19px; background: url(http://cloudspokes.s3.amazonaws.com/yellow-pin.png); }
+
+#featured-challenge { height: 97px; width: 384px; background: url(http://cloudspokes.s3.amazonaws.com/dashboard-fearured-project.gif); position: relative; overflow: hidden; margin-right: 50px;float: right; display: inline;  padding: 20px 15px 0 25px; }
+#featured-challenge h3 { font-size: 20px; font-weight: 400; color: #000; margin-bottom: 10px; }
+#featured-challenge .info { width: 250px; color: #666; }
+#featured-challenge .info strong { font-weight: normal; font-size: 15px; color: #000; padding-right: 5px; }
+#featured-challenge .prize-info { width: 115px; padding-top: 5px; }
+#featured-challenge .prize { background: url(http://cloudspokes.s3.amazonaws.com/icon-prize.gif) no-repeat 0 0; padding-left: 35px; display :block; height: 32px; line-height: 32px; color: #000C4C; font-size: 15px; }
+
+
+.columns { padding: 15px 20px 50px; height: 100%; }
+.columns .column{ float: left; display: inline; width: 300px; }
+.columns .column-middle { margin: 0 20px; }
+
+.columns h3 { line-height: 39px; background: #e7edea url(http://cloudspokes.s3.amazonaws.com/home-cols-h-bg.gif) no-repeat 0 0; padding: 0 13px; margin: 0; }
+
+.columns .box { background-image: url(http://cloudspokes.s3.amazonaws.com/home-cols-box-bg.gif); }
+.columns .box-b { background-image: url(http://cloudspokes.s3.amazonaws.com/home-cols-box-b.gif); }
+.columns .box-t { background-image: url(http://cloudspokes.s3.amazonaws.com/home-cols-box-t.gif); padding: 10px; min-height: 166px; }
+
+
+.columns .featured-member .member-box { background: #e7edea; width: 278px; margin-bottom: 10px; }
+.columns .featured-member .member-b { background:  url(http://cloudspokes.s3.amazonaws.com/featured-member-b.gif) no-repeat 0 bottom; }
+.columns .featured-member .member-t { background: url(http://cloudspokes.s3.amazonaws.com/featured-member-t.gif) no-repeat; padding: 10px; height: 100%; }
+.columns .featured-member img { float: left; display: inline; margin-right: 10px; }
+.columns .featured-member .user-info { float: left; display: inline; width: 200px; }
+.columns .featured-member .user-info .job { color: #999; }
+.columns .featured-member .user-info .stats { color: #666; }
+
+.columns .leaders .user-box { width: 249px; }
+.columns .leaders li { margin-bottom: 5px; }
+.columns .leaders .user-box .box-t { padding: 10px; min-height: 0; background-image: url(http://cloudspokes.s3.amazonaws.com/home-leaders-t.gif); }
+.columns .leaders .user-box .box-b { background-image: url(http://cloudspokes.s3.amazonaws.com/home-leaders-b.gif); }
+.columns .leaders .user-box img { float: left; display: inline; }
+.columns .leaders .user-box .user-info { float: right; display: inline; width: 193px; position: relative; margin-top: -5px; }
+.columns .leaders .user-box .user-info span { color: #999; }
+.columns .leaders .user-box .user-info span.stats { line-height: 16px; }
+
+.page-heading { background: url(http://cloudspokes.s3.amazonaws.com/page-heading-bg.gif) no-repeat 0 0; padding: 0 20px; border-bottom: 1px solid #303b42; }
+.page-heading h2 { font-size: 45px; line-height: 47px; font-weight: 400; color: #fff; padding: 27px 0 15px; }
+
+.help-nav { height: 25px; background: url(http://cloudspokes.s3.amazonaws.com/help-nav-bg.gif); padding: 10px 20px; line-height: 25px; }
+.help-nav .sort ul li { float: left; display: inline; margin-right: 10px; font-size: 15px; color: #7d837d; }
+.help-nav .sort ul li a { float: left; display: inline; margin-right: 15px; color: #7d837d; }
+.help-nav .sort ul li a.dd { padding-left: 11px; background: url(http://cloudspokes.s3.amazonaws.com/bullet-1.gif) no-repeat 0 center; color: #000; }
+.help-nav .sort ul li a.ddasc { padding-left: 11px; background: url(http://cloudspokes.s3.amazonaws.com/bullet-2.gif) no-repeat 0 center; color: #000; }
+.help-nav .sort ul li a.active,
+.help-nav .sort ul li a:hover { text-decoration: none; color: #000; }
+
+#search { float: right; display: inline; width: 265px; height: 26px; background: url(http://cloudspokes.s3.amazonaws.com/search-bg.gif) no-repeat 0 0; position: relative; overflow: hidden; }
+#search fieldset { padding-bottom: 0; }
+#search .field { float: left; display: inline; width: 219px; height: 16px; border: 0; background: none; padding: 5px 8px; font-size: 13px; font-style: italic; color: #A3A5A4; }
+#search .submit { float: left; display: inline; height: 26px; width: 30px; background: none; }
+
+/*
+	Categories
+*/
+
+.categories { height: 30px; margin-bottom: 18px; }
+.categories li { float: left; display: inline; height: 30px; margin-right: 8px; }
+.categories li.last { margin: 0; }
+
+.categories li a, 
+.categories li a span { float: left; display: inline; height: 30px; line-height: 30px; padding-left: 10px; background: url(http://cloudspokes.s3.amazonaws.com/cat-bg.gif) no-repeat 0 0; font-size: 17px; color: #1B1F22; }
+.categories li a span { padding-left: 0; padding-right: 10px; background-position: right 0; }
+
+.category-selected
+{
+    font-weight: bold;
+    color:White;
+}
+
+.categories li.active a,
+.categories li.hover a,
+.categories li.active span,
+.categories li.hover span { background-position: 0 -30px; color: #fff; text-decoration: none; }
+
+.categories li.active span,
+.categories li.hover span { background-position: right -30px; }
+
+.categories .hover .brown,
+.categories .active .brown { color: #df9f2d; }
+
+.categories .hover .blue,
+.categories .active .blue { color: #649ada; }
+
+.categories .hover .red,
+.categories .active .red { color: #bb3d2b; }
+
+.categories .hover .grey,
+.categories .active .grey { color: #999; }
+
+.categories .hover .yellow,
+.categories .active .yellow { color: #fadf43; }
+
+.categories .hover .light-blue,
+.categories .active .light-blue { color: #54b1b6; }
+
+.categories .hover .pink,
+.categories .active .pink { color: #ac85ce; }
+
+.categories .hover .orange,
+.categories .active .orange { color: #e44a1b; }
+
+.categories .hover .green,
+.categories .active .green { color: #79c844; }
+
+.categories .hover .light-green,
+.categories .active .light-green { color: #89bc92; }
+
+.categories .hover .dark-green,
+.categories .active .dark-green { color: #548d30; }
+
+.categories .hover .black, 
+.categories .active .black {color: #000000;}
+
+.content-wrapper { padding: 20px }
+
+.two-cols-bg { background: url(http://cloudspokes.s3.amazonaws.com/two-cols-shadow.gif) repeat-y 0 0; }
+
+.widecolumn { width: 600px; }
+
+.box { background-repeat: repeat-y; background-position: 0 0; }
+.box-b { background-repeat: no-repeat; background-position: 0 bottom; }
+.box-t { background-repeat: no-repeat; background-position: 0 0; }
+
+.list-members .box { background-image: url(http://cloudspokes.s3.amazonaws.com/list-members-bg.gif); margin-bottom: 5px; }
+.list-members .box-b { background-image: url(http://cloudspokes.s3.amazonaws.com/list-members-b.gif); }
+.list-members .box-t { background-image: url(http://cloudspokes.s3.amazonaws.com/list-members-t.gif); padding: 10px; }
+
+.list-members .user-info { width: 291px; }
+.list-members .user-info img { float: left; display: inline; margin-right: 10px; }
+.list-members .user-info .text-holder { float: left; display: inline; width: 220px; }
+
+.list-members .user-info h4 { font-size: 17px; color: #000; margin-bottom: 5px; font-weight: normal; }
+
+span.job,
+span.stats { display: block; color: #000c4c; font-size: 13px; }
+
+.list-members .user-desc { width: 272px; }
+.list-members .user-desc p { padding: 0; color: #666; }
+.list-members .user-desc p a { color: #0099ff; }
+
+.paging { margin-top: 5px; }
+.paging p { color: #0099FF !important; }
+.paging a { color: #0099FF; padding: 0 4px; }
+.paging a:hover,
+.paging a.active { background: #e7edea; color: #010c4d; text-decoration: none; }
+
+.sidebar { width: 300px; }
+
+.filters { margin-bottom: 10px; } 
+.filters span { padding-right: 20px; font-size: 15px; color: #b3b9b2; }
+.filters span a { color: #b3b9b2; }
+.filters span a:hover,
+.filters span a.active { color: #000; text-decoration: none; }
+
+.leaders li { margin-bottom: 6px; }
+.leaders li.last { margin-bottom: 0; }
+.leaders .num { float: left; display: inline; }
+
+
+.leaders .user-box { background: #e7edea; width: 270px; }
+.leaders .user-box .box-b { background-image: url(http://cloudspokes.s3.amazonaws.com/leaders-box-b.gif); }
+.leaders .user-box .box-t { background-image: url(http://cloudspokes.s3.amazonaws.com/leaders-box-t.gif); padding: 7px 10px 7px 5px; }
+.leaders .user-box a.fl { margin-right: 5px; }
+.leaders .user-box a.fl img { display: block; }
+.leaders .user-box .user-info { width: 230px; line-height: 21px; }
+.leaders .leader .user-box .user-info { width: 195px;  line-height: 16px; }
+.leaders .user-box .user-info h4 { }
+
+.leaders .leader .user-box .box-t { padding: 10px; }
+.leaders .num { float: left; display: inline; width: 28px; height: 31px; text-align: center; line-height: 28px; font-size: 16px; font-weight: bold; background: url(http://cloudspokes.s3.amazonaws.com/num-default.gif); position: relative; margin: 2px 4px 0 -2px; color: #7e7e7e; letter-spacing: -2px; text-indent: -2px; }
+.leaders .num-gold { background-image: url(http://cloudspokes.s3.amazonaws.com/num-gold.gif); color: #7b5b30; }
+.leaders .num-silver { background-image: url(http://cloudspokes.s3.amazonaws.com/num-silver.gif); color: #666; }
+.leaders .num-bronze { background-image: url(http://cloudspokes.s3.amazonaws.com/num-bronze.gif); color: #7A5A30; }
+
+span.counter { font-size: 17px; color: #666; }
+.top-border { border-top: 10px solid #456179; }
+
+/*
+	Leaderboards
+*/
+
+#leaderboards { margin-bottom: 5px; }
+#leaderboards .leaders { padding-bottom: 5px; }
+#leaderboards .columns { padding: 0; } 
+#leaderboards .columns h3 { line-height: 100%; background: none; margin-bottom: 10px; padding: 0; } 
+
+#leaderboards .user-box { width: 270px; }
+#leaderboards .user-box .box-t { background-image: url(http://cloudspokes.s3.amazonaws.com/leaders-box-t.gif); }
+#leaderboards .user-box .box-b { background-image: url(http://cloudspokes.s3.amazonaws.com/leaders-box-b.gif); }
+#leaderboards .user-box .user-info { margin: 0; width: 230px; }
+#leaderboards .leader .user-box  .user-info { width: 193px; }
+
+
+#leaderboards .leaders .user-box .box-t { padding: 7px 10px 7px 5px; }
+#leaderboards .leaders .leader .user-box .box-t { padding: 10px; }
+
+/*
+	Challeges
+*/
+
+.list-challenges { margin-bottom: 20px; }
+.list-challenges .box { background-image: url(http://cloudspokes.s3.amazonaws.com/challenge-box-bg.gif); margin-bottom: 10px; }
+.list-challenges .box-b { background-image: url(http://cloudspokes.s3.amazonaws.com/challenge-box-b.gif); }
+.list-challenges .box-t { background-image: url(http://cloudspokes.s3.amazonaws.com/challenge-box-t.gif); padding: 6px 10px; }
+.list-challenges .col-left { width: 410px; }
+.list-challenges .col-right { width: 132px; }
+.list-challenges .col-right p a { color: #020c4e; }
+.list-challenges .col-left h4 { padding: 6px 0 7px; margin: 0; }
+.list-challenges .col-left p { color: #666; }
+
+.list-challenges p { padding: 0; font-size: 13px; line-height: 17px; color: #000C4C; }
+.list-challenges .brown { color: #da7b20; }
+.list-challenges .yellow { color: #f1d563; }
+.list-challenges .pink { color: #ac85ce; }
+.list-challenges .green { color: #74bf44; }
+.list-challenges .light-green { color: #88bb92; }
+.list-challenges .dark-green { color: #aacb33; }
+.list-challenges .red { color: #b1394d; }
+.list-challenges .grey { color: #7e8388; }
+.list-challenges .orange { color: #e44a1b; }
+.list-challenges .blue { color: #649ADA; }
+.list-challenges .light-blue { color: #54B1B6; }
+
+/*
+	Full Width Challenges
+*/
+
+.full-width-challenges { margin-bottom: 55px; }
+.full-width-challenges .box { background-image: url(http://cloudspokes.s3.amazonaws.com/challenge-box-bg-full.gif); }
+.full-width-challenges .box-b { background-image: url(http://cloudspokes.s3.amazonaws.com/challenge-box-b-full.gif); }
+.full-width-challenges .box-t { background-image: url(http://cloudspokes.s3.amazonaws.com/challenge-box-t-full.gif); padding: 10px; }
+.full-width-challenges .col-left { width: 585px; }
+.full-width-challenges .col-left h4 { padding: 0 0 2px; }
+.full-width-challenges .col-right { width: 300px; }
+.full-width-challenges .box .col-left .checkbox { float: left; padding-right: 5px; }
+
+.get-rss { padding-left: 30px; background: url(http://cloudspokes.s3.amazonaws.com/icon-rss.gif) no-repeat 0 0; line-height: 20px; position: relative; margin-left: -6px; height: 25px; }
+
+/*
+	Recommendations
+*/
+
+.recommendations ul { float: right; display: inline; }
+.recommendations ul li { float: left; display: inline; line-height: 19px; margin-left: 8px; padding-right: 10px; background: url(http://cloudspokes.s3.amazonaws.com/recommend-separator.gif) no-repeat right center; }
+.recommendations ul li.last { background: none; padding: 0; }
+.recommendations ul li.recommend a { float: left; display: inline; padding-left: 23px; background: url(http://cloudspokes.s3.amazonaws.com/icon-recommend-small.gif) no-repeat 0 0; }
+
+.recommendations .box { background-image: url(http://cloudspokes.s3.amazonaws.com/recommend-box-bg.gif); margin-bottom: 5px; }
+.recommendations .box-b { background-image: url(http://cloudspokes.s3.amazonaws.com/recommend-box-b.gif); }
+.recommendations .box-t { background-image: url(http://cloudspokes.s3.amazonaws.com/recommend-box-t.gif); padding: 10px; }
+.recommendations .box-t .text-holder { width: 490px; }
+.recommendations .box-t .text-holder p { padding: 0 0 5px; }
+.recommendations .box-t .text-holder span { color: #999; }
+
+/*
+	Profile
+*/
+
+.profile img.fl { margin-bottom: 15px; }
+.profile-info { width: 200px; margin-bottom: 15px; }
+.profile-info h4 { line-height: 34px; font-size: 24px; color: #000; padding-left: 10px; background: #679ac9 url(http://cloudspokes.s3.amazonaws.com/profile-name-bg.gif) no-repeat right  0; margin: 10px 0; }
+.profile-info span { display: block; padding-left: 10px; font-weight: bold; }
+
+
+.profile .actions { margin-bottom: 40px; }
+.profile .actions li { float: left; display: inline; width: 50%; height: 26px; line-height: 26px; }
+.profile .actions li a { float: left; display: inline;  }
+.profile .actions li.message a { padding-left: 35px; background: url(http://cloudspokes.s3.amazonaws.com/icon-message.gif) no-repeat 0 center; }
+.profile .actions li.recommend a { padding-left: 32px; background: url(http://cloudspokes.s3.amazonaws.com/icon-recommend.gif) no-repeat 0 center; }
+
+
+.profile .stats { margin-bottom: 10px; }
+.profile .stats li strong { float: left; display: inline; width: 33px; text-align: right; margin-right: 8px; }
+
+
+.profile .achievements { margin-bottom: 32px; }
+.profile .achievements li { float: left; display: inline; width: 40px; height: 45px; margin: 0 20px 8px 0; position: relative; }
+.profile .achievements li .badge-popup { position: absolute; top: 0; right: -20px; height: 154px; width: 302px; background: url(http://cloudspokes.s3.amazonaws.com/badge-popup.png); z-index: 2; display: none; }
+.profile .achievements li .badge-popup .thumb { margin: 0 20px 6px 0; }
+.profile .achievements li .badge-popup img.fl { margin: 0 10px 0 11px; }
+.profile .achievements li .badge-popup .text-holder { width: 180px; }
+.profile .achievements li .badge-popup .text-holder h4 { margin: 2px 0 5px 0; }
+.profile .achievements li .badge-popup .see-all { position: absolute; bottom: 8px; left: 10px; width: 100%; padding: 0; }
+
+.socials li { float: left; display: inline; margin: 0 10px 10px 0; }
+
+
+/*
+	Make Recommendation
+*/
+
+.make-recommendation { width: 490px; }
+.make-recommendation select { display: block; width: 265px; margin-bottom: 40px; }
+.make-recommendation textarea { display: block; width: 474px; height: 154px; border: 3px solid #666; padding: 5px; font-size: 14px; margin-bottom: 28px; }
+.make-recommendation .submit { float: left; display: inline; height: 26px; width: 75px; text-align: center; color: #fff; font-size: 14px; background: url(http://cloudspokes.s3.amazonaws.com/login-button.gif); padding-bottom: 2px; margin: 0 10px 0 178px; }
+.make-recommendation span.fl { line-height: 26px; }
+ .make-recommendation .captchaCode{ margin: 8px 5px 5px 0px; float: left;width:155px;}
+ .make-recommendation .captcha{ margin: 0px 5px 5px 0px; float: left;border:1px solid gray;width:200px;}
+ .make-recommendation .captchaRefresh{ float:left;vertical-align:middle;padding-top:15px;}
+.make-recommendation .field { float: left; display: inline; border: 1px solid #ccc; background: #fff; width: 130px; height: 16px; font-size: 13px; color: #666; padding: 6px 5px; margin-bottom: 10px; }
+ .make-recommendation .codelbl{float:left; width:70px; margin-right:5px; margin-top:10px;}
+
+
+
+
+/*
+	Challenge Information
+*/
+
+.challenge-information { }
+.challenge-information .list-technologies { height: 30px; margin-bottom: 30px; }
+
+.challenge-information .list-technologies li { float: left; display: inline; height: 30px; margin-right: 8px; }
+.challenge-information .list-technologies li.last { margin: 0; }
+
+.challenge-information .list-technologies li a, 
+.challenge-information .list-technologies li a span { float: left; display: inline; height: 30px; line-height: 30px; padding-left: 10px; background: url(http://cloudspokes.s3.amazonaws.com/challenge-technology-bg.gif) no-repeat 0 0; font-size: 17px; }
+.challenge-information .list-technologies li a span { padding-left: 0; padding-right: 10px; background-position: right 0; }
+
+.challenge-information .list-technologies li a:hover { text-decoration: none; }
+
+.challenge-information li.active span,
+.challenge-information li.hover span { background-position: right -30px; }
+
+/*
+	Discussion
+*/
+
+.discussion { margin-top: 20px; }
+.discussion h2 { font: 28px "Myriad Pro", "Trebuchet MS", Arial, sans-serif; color: #6699c9; margin-bottom: 15px; }
+.discussion .box { margin-bottom: 7px; }
+
+.discussion .reply-post .box { background-image: url(http://cloudspokes.s3.amazonaws.com/challenge-l2-bg.gif); width: 568px; margin-left: 33px; }
+.discussion .reply-post .box-b { background-image: url(http://cloudspokes.s3.amazonaws.com/challenge-l2-b.gif); }
+.discussion .reply-post .box-t { background-image: url(http://cloudspokes.s3.amazonaws.com/challenge-l2-t.gif); }
+.discussion .reply-post .text-holder { width: 460px; }
+.discussion .captchaCode{ margin: 8px 5px 5px 0px; float: left;width:155px;}
+.discussion .captcha{ margin: 0px 5px 5px 0px; float: left;border:1px solid gray;width:200px;}
+.discussion .captchaRefresh{ float:left;vertical-align:middle;padding-top:15px;}
+.discussion .field { float: left; display: inline; border: 1px solid #ccc; background: #fff; width: 130px; height: 16px; font-size: 13px; color: #666; padding: 6px 5px; margin-bottom: 10px; }
+.discussion .codelbl{float:left; width:70px; margin-right:5px; margin-top:10px;}
+
+
+
+.post-comment { margin-top: 23px; }
+.post-comment .holder { height: 84px; width: 448px; background: url(http://cloudspokes.s3.amazonaws.com/textarea-1.gif); padding: 5px; margin-bottom: 10px; }
+.post-comment .holder textarea { display: block; height: 84px; width: 448px; border: 0; font-size: 14px; color: #666; }
+.post-comment .captchaCode{ margin: 8px 5px 5px 0px; float: left;width:155px;}
+.post-comment .captcha{ margin: 0px 5px 5px 0px; float: left;border:1px solid gray;width:200px;}
+.post-comment .captchaRefresh{ float:left;vertical-align:middle;padding-top:15px;}
+.post-comment .field { float: left; display: inline; border: 1px solid #ccc; background: #fff; width: 130px; height: 16px; font-size: 13px; color: #666; padding: 6px 5px; margin-bottom: 10px; }
+.post-comment .codelbl{float:left; width:70px; margin-right:5px; margin-top:10px;}
+
+
+/*
+	Challenge Sidebar
+*/
+
+.challenge-sidebar { }
+.challenge-sidebar h2 { margin-bottom: 5px; font-weight: normal; font-size: 24px; line-height: 100%; }
+.challenge-sidebar li { margin-bottom: 15px; }
+.challenge-sidebar li li { margin-bottom: 0; }
+.challenge-sidebar li li span { float: left; display: inline; font-weight: bold; text-align: right; margin-right: 10px; }
+
+/*
+	Forum
+*/
+
+#forum { margin-bottom: 50px; }
+#forum h2 { font-size: 16px; }
+.forum-main-title { color: #0099ff; margin-bottom: 15px; }
+.last-visit { color: #333; }
+
+
+#forum th { padding: 0 10px; font-size: 16px; font-weight: bold; color: #fff; line-height: 36px; background: url(http://cloudspokes.s3.amazonaws.com/forum-h-bg-1.gif) repeat-x 0 0; text-align: left; }
+#forum .sub-head { background: url(http://cloudspokes.s3.amazonaws.com/forum-sub-h-bg.gif) repeat-x 0 0; padding: 0; border: 0; }
+#forum .sub-head strong { display: block; line-height: 27px; padding-left: 8px; color: #0099ff; }
+
+#forum .sub-head a.toggle { padding-left: 22px; background: url(http://cloudspokes.s3.amazonaws.com/icon-hide-forum.gif) no-repeat 0 center;  height: 27px; width: 35%; }
+#forum .sub-head a.show { background-image: url(http://cloudspokes.s3.amazonaws.com/icon-show-forum.gif); }
+#forum .sub-head td strong { line-height: 16px; display: inline; }
+
+#forum td { padding: 10px; border-right: 1px solid #ccc; border-bottom: 1px solid #ccc; color: #000; }
+#forum td.last { border-right: 0; }
+#forum td p { padding: 0; width: 282px; }
+#forum td span { display: block; width: 235px; }
+#forum td span strong { padding: 0 !important; }
+#forum td h3 { font-size: 14px; color: #456079; margin: 0; font-weight: bold; width: 282px; }
+#forum td h3 a { color: #456079; }
+
+#forum .table-holder { margin: 10px 0 20px; }
+
+.forum-actions { margin-top: 7px; height: 25px; }
+.forum-actions li { float: left; display: inline; padding-right: 7px; margin-right: 5px; background: url(http://cloudspokes.s3.amazonaws.com/recommend-separator.gif) no-repeat right center; line-height: 20px; height: 25px; }
+.forum-actions li.last { background: none; }
+.forum-actions li .rss { float: left; display: inline; background: url(http://cloudspokes.s3.amazonaws.com/icon-rss.gif) no-repeat right center; padding-right: 30px; height: 25px; }
+
+#forum .sub-head-big { background-image: url(http://cloudspokes.s3.amazonaws.com/sub-head-big-bg.gif); height: 36px; }
+#forum .sub-head-big a { color: #fff; font-size: 16px; font-weight: normal; }
+
+#forum .sub-head-big strong { display: block !important; line-height: 35px !important; padding-left: 8px; color: #0099ff; font-size: 14px; }
+#forum .sub-head-big .sub-head strong { line-height: 28px !important; }
+#forum .sub-head-big .sub-head p a { color: #0099ff; }
+
+
+#forum .bottom-table td { border: 0; }
+#forum .bottom-table p { width: auto; }
+
+#forum .icons-legend { height: 31px; padding-left: 10px; }
+#forum .icons-legend li { float: left; display: inline; margin-right: 30px; line-height: 31px; background-repeat: no-repeat; background-position: 0 0; height: 31px; padding-left: 39px; color: #000; font-size: 12px; }
+#forum .icons-legend li.new { background-image: url(http://cloudspokes.s3.amazonaws.com/forum-new-posts.gif); }
+#forum .icons-legend li.no-new { background-image: url(http://cloudspokes.s3.amazonaws.com/forum-no-new-posts.gif); }
+#forum .icons-legend li.locked { background-image: url(http://cloudspokes.s3.amazonaws.com/forum-locked.gif); }
+
+#forum .breadcrumbs { font-size: 12px; margin-bottom: 20px; }
+
+.forum-buttons { height: 26px; float: right; display: inline; margin-bottom: 18px; }
+.forum-buttons .button { margin: 0 0 0 5px; }
+
+.topic-title { line-height: 36px; background: url(http://cloudspokes.s3.amazonaws.com/forum-h-bg-1.gif) repeat-x 0 0; padding: 0 10px; font-size: 16px; margin-bottom: 5px; }
+.topic-title h3 { font-size: 16px; color: #fff; }
+
+.topic-nav li { float: left; display: inline; margin-right: 35px; color: #0099ff; }
+
+.grey-bar { line-height: 28px; background: url(http://cloudspokes.s3.amazonaws.com/forum-sub-h-bg.gif) repeat-x 0 0; padding: 0 10px; color: #0099ff; height: 100%; }
+
+
+#forum .topic { border: 1px solid #ccc; margin-bottom: 10px; height: 100%; }
+#forum .topic .widecolumn { width: 685px; padding: 15px 0 0 15px; height: 100%; }
+#forum .topic .sidebar { width: 190px; padding: 20px 20px 0 18px; border-left: 2px solid #ccc; }
+
+#forum .topic .post {  color: #000; font-size: 12px; line-height: 14px; padding-bottom: 30px; }
+#forum .topic .post h4 { font-size: 14px; color: #0099ff; margin-bottom: 2px; }
+#forum .topic .post small { font-size: 11px; display: block; margin-bottom: 15px; }
+
+#forum .topic-profile img.fl { margin-right: 7px; }
+#forum .topic-profile .text-holder { width: 135px; }
+#forum .topic-profile .text-holder strong { font-size: 16px; color: #0099ff; display: block; margin-bottom: 5px; }
+
+.send-message { padding-left: 35px; background: url(http://cloudspokes.s3.amazonaws.com/icon-message.gif) no-repeat 0 0; line-height: 26px; }
+
+.topic-author-stats { background-image: url(http://cloudspokes.s3.amazonaws.com/topic-author-stats-bg.gif); width: 192px; position: relative; margin: 14px 0 18px -2px; }
+.topic-author-stats .box-b { background-image: url(http://cloudspokes.s3.amazonaws.com/topic-author-stats-b.gif); }
+.topic-author-stats .box-t { background-image: url(http://cloudspokes.s3.amazonaws.com/topic-author-stats-t.gif); padding: 7px 10px 10px 10px; line-height: 14px; font-size: 12px; }
+
+
+.topic-profile .socials li { margin-bottom: 0; }
+
+.quick-reply { margin-bottom: 10px; }
+#forum .quick-reply .container { display: none; }
+#forum .container { padding: 10px; border: 1px solid #ccc; display: block; height: 100%; }
+
+.grey-bar .toggle { padding-left: 22px; background: url(http://cloudspokes.s3.amazonaws.com/icon-show-forum.gif) no-repeat 0 center; }
+.grey-bar .show { background-image: url(http://cloudspokes.s3.amazonaws.com/icon-hide-forum.gif); }
+
+.browsing-users { margin-bottom: 10px; }
+
+.forum-jump { float: right; display: inline; width: 345px; color: #000; }
+.forum-jump label { float: left; display: inline; font-size: 12px; }
+.forum-jump select { float: left; display: inline; width: 265px; margin-left: 10px; }
+
+/*
+	Account
+*/
+
+.left-sidebar { background: url(http://cloudspokes.s3.amazonaws.com/left-sidebar-bg.gif) repeat-y 0 0; }
+
+#account .sidebar { width: 241px; }
+#account .sidebar h2 { color: #456179; }
+
+.menu { width: 241px; position: relative; overflow: hidden; margin-bottom: 26px; }
+.menu li { height: 35px; margin-bottom: 6px; line-height: 35px; width: 219px; }
+.menu li a { display: block; height: 35px; line-height: 35px; background: url(http://cloudspokes.s3.amazonaws.com/menu-bg.gif) no-repeat 0 0; position: relative; overflow: hidden; padding: 0 12px 0 15px; font-size: 17px; }
+.menu li a:hover,
+.menu li a.active { background-position: 0 -35px; color: #fff; text-decoration: none; }
+.menu li a span { float: right; display: inline; height: 26px; width: 26px; text-align: center; color: #fff; background: url(http://cloudspokes.s3.amazonaws.com/messages-counter.png); margin-top: 5px; line-height: 26px; font-size: 16px; font-weight: bold; }
+
+.menu-separator { border-bottom: 1px solid #e5e5e5; padding-bottom: 12px; margin-bottom: 14px; }
+
+#account .widecolumn { width: 680px; }
+
+.project-overview { margin-bottom: 15px; }
+.project-overview .box { background-image: url(http://cloudspokes.s3.amazonaws.com/project-ov-bg.gif); margin-bottom: 10px; }
+.project-overview .box-b { background-image: url(http://cloudspokes.s3.amazonaws.com/project-ov-b.gif); }
+.project-overview .box-t { background-image: url(http://cloudspokes.s3.amazonaws.com/project-ov-t.gif); padding: 10px; }
+.project-overview .box .col-left { float: left; display: inline; width: 405px; }
+.project-overview .box .col-left h4 { margin-bottom: 10px; }
+.project-overview .box .col-right { float: right; display: inline;  position: relative; width: 214px; }
+.project-overview .box p { padding: 0; }
+.project-overview .box .col-right p,
+.project-overview .box .col-right p a { color: #000c4c; }
+.project-overview .box .col-right .project-action { position: absolute; bottom: 0; right: 0; }
+.project-overview .box .col-right .project-action a { color: #0099FF; }
+.project-overview .box .col-left .checkbox { float: left; padding-right: 5px; }
+
+/*
+	Scorecard
+*/
+
+.scoring { margin-top: 25px; }
+.scoring h4 { font-size: 16px; font-weight: bold; color: #456179; margin-bottom: 8px; }
+.scoring .heading { line-height: 21px; background: #456179; }
+.scoring .heading p { padding: 0 17px 0 0; color: #fff; font-size: 10px; font-weight: bold; }
+.scoring .heading p .rate-1 { padding-right: 11px; }
+
+.scoring .container { border: 1px solid #ccc; border-top: 0; padding: 10px; height: 100%; }
+
+.scoring .box { background-image: url(http://cloudspokes.s3.amazonaws.com/scoring-bg.gif); margin-bottom: 7px; }
+.scoring .box-b { background-image: url(http://cloudspokes.s3.amazonaws.com/scoring-b.gif); }
+.scoring .box-t { background-image: url(http://cloudspokes.s3.amazonaws.com/scoring-t.gif); padding: 10px; min-height: 44px; }
+
+.scoring .col-left { float: left; display: inline; width: 430px; }
+.scoring .col-left .percentage { float: left; display: inline; width: 43px; color: #456179; font-size: 14px; }
+.scoring .col-left .text-holder { float: left; display: inline; width: 370px; }
+.scoring .col-left .text-holder p { padding: 0; }
+
+.scoring .col-right { float: right; display: inline; width: 200px; font-size: 12px; }
+.scoring .col-right .rate { width: 50px; float: left; display: inline; text-align: center; }
+.scoring .col-right .rate .radio { float: none; display: block; margin: 0 auto; }
+.scoring .col-right .rate label { display: block; }
+
+.scoring .comments { margin-top: 4px; }
+.scoring .comments label { float: left; display: inline; width: 228px; }
+.scoring .comments .holder { float: left; display: inline; height: 56px; width: 410px; background: url(http://cloudspokes.s3.amazonaws.com/textarea-2.gif); padding: 10px; position: relative; overflow: hidden; }
+.scoring .comments .holder textarea { display: block; height: 56px; width: 410px; border: 0; background: none; color: #666; font-size: 14px; }
+
+.scorecard .actions { margin-top: 25px; }
+
+/*
+	Create Challenge
+*/
+
+.create-challenge {  position: relative; margin-right: -20px; width: 700px; }
+.create-challenge h3 { margin-bottom: 20px; }
+.create-challenge h4 { font-size: 13px; margin-bottom: 15px; }
+
+.create-challenge label { float: left; display: inline; line-height: 28px; width: 132px; margin-right: 0; text-align: right; padding-right:2px; }
+.create-challenge .field { float: left; display: inline; border: 1px solid #ccc; background: #fff; width: 368px; height: 16px; font-size: 13px; color: #666; padding: 6px 5px; margin-bottom: 10px; }
+.create-challenge .lbl { float: left; display: inline; line-height: 28px; width: 80px !important; margin-right: 0; text-align: right; }
+
+.create-challenge .radio input{ float: left; display: inline; line-height: 28px;  margin-right: 6px; text-align: right; margin-top:7px; }
+.create-challenge .radio label{ float: left; display: inline; line-height: 28px;  margin-right: 6px; text-align: left; width:100px; }
+
+.create-challenge .delete { float: left; display: inline; height: 20px; width: 22px; margin-top: 4px; }
+.create-challenge .delete a { display: block; height: 20px; width: 22px; background: url(http://cloudspokes.s3.amazonaws.com/icon-close.gif); font-size: 0; line-height: 0; text-indent: -4000px; }
+.create-challenge .delete a:hover { text-decoration: none; }
+
+.create-challenge .prize { float: left; display: inline; }
+.create-challenge .prize .field { width: 170px; margin-bottom: 5px; }
+.create-challenge .prize label { width: auto; }
+.create-challenge .prize p { padding: 7px 0 10px 24px; }
+
+.create-challenge .field { width: 170px; margin-right: 4px; }
+.create-challenge .field-small { width: 80px; margin-right: 4px;float: left; display: inline; border: 1px solid #ccc; background: #fff; height: 16px; font-size: 13px; color: #666; padding: 6px 5px; margin-bottom: 10px; }
+.create-challenge .second-label { width: 55px; }
+.create-challenge select.time { float: left; display: inline; width: 54px; margin-top: 5px; }
+.create-challenge select.challenge-type { float: left; display: inline; width: 162px; margin: 5px 24px 0 0; }
+.create-challenge select.status-select { float: left; display: inline; width: 161px; margin-top: 5px; }
+
+.create-challenge .challenge-details { margin-top: 30px; }
+.create-challenge .challenge-details textarea { float: left; display: inline; height: 150px; width: 472px; background: #fff; border: 1px solid #ccc; padding: 5px; font-size: 13px; color: #666; margin-bottom: 10px; }
+
+.create-challenge .assets { margin-top: 25px; }
+.create-challenge .assets .file { float: left; display: inline; font-size: 13px; margin-top: 4px; }
+.create-challenge .assets p { padding-left: 141px; }
+
+.create-challenge .review-information { border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; padding: 15px 0; margin: 5px 0 15px; }
+.create-challenge .review-information .review-type { float: left; display: inline; width: 161px; margin-top: 5px; margin-bottom: 10px; }
+.create-challenge .review-information label.checkbox { width: auto; margin-right: 20px; }
+.create-challenge .review-information input.checkbox { margin-top: 8px; }
+
+.create-challenge .reviewers { margin-bottom: 15px; }
+.create-challenge .reviewers input.checkbox { margin: 7px 5px 0 140px; }
+.create-challenge .reviewers label.checkbox { width: auto; }
+.create-challenge .reviewers p { padding: 0 0 15px 141px; }
+
+.create-challenge .buttons { margin-left: 140px; }
+.create-challenge .buttons .button { padding-left: 20px; }
+.create-challenge .buttons .button span { padding-right: 20px; }
+.create-challenge .ui-datepicker-trigger { float: left; display: inline; margin-top: 5px; cursor: pointer; }
+
+.create-challenge .openCheck input.checkbox { padding-top: 8px; }
+
+/*
+	Transactions
+*/
+
+.transactions { }
+.transactions h3 { margin-bottom: 20px; }
+.transactions p.fr { padding-bottom: 20px; }
+.transactions table { margin-bottom: 10px; }
+.transactions .button { padding-left: 12px; }
+.transactions .button span { padding-right: 12px; }
+.transactions th { height: 35px; background: url(http://cloudspokes.s3.amazonaws.com/transactions-th-bg.gif) repeat-x 0 0; line-height: 35px; padding: 0 9px; border-left: 1px solid #fff; border-right: 1px solid #ccc; font-size :12px; text-align: left; }
+.transactions th input { margin-top: 12px;  position: relative; float: left; display: inline; }
+/* Sometimes it has to be done the hard way - IE6/7 hack */ .transactions th input { _margin-top: 8px; *margin-top: 8px; }
+.transactions th .corner { display: block; height: 35px; background-repeat: no-repeat; background-position: 0 0; }
+.transactions th .tlc { background-image: url(http://cloudspokes.s3.amazonaws.com/transactions-tlc.gif); padding: 0 12px; position: relative; top : 0; left: -1px; width: 15px; }
+.transactions th .trc { background-image: url(http://cloudspokes.s3.amazonaws.com/transactions-trc.gif); background-position: right 0; position: relative; right: -1px; }
+.transactions th.first { padding-left: 0; border-left: 1px solid #e9e9e9; padding: 0; }
+.transactions th.last { border-right: 1px solid #e9e9e9; padding-right: 0; }
+.transactions td { padding: 8px 11px; border-bottom: 1px solid #ccc; color: #333; height: 100%; }
+.transactions td.first { border-left: 1px solid #ccc; }
+.transactions td.last { border-right: 1px solid #ccc; text-align: right; }
+
+/*
+	Messages
+*/
+
+.messages table { position: relative; top: -12px; }
+.messages h3 { margin-bottom: 17px; }
+.messages .button { padding-left: 12px; }
+.messages .button span { padding-right: 12px; }
+.messages td { color: #333; font-size: 12px; padding: 12px 0; border-bottom: 1px solid #ccc; }
+.messages td a { color: #333;  }
+.messages td input { position: relative; top: 2px; }
+.messages .new td { font-weight: bold; }
+
+
+/*Edit Public Profile*/
+
+.edit-public-profile {  position: relative; margin-right: -20px; width: 700px; }
+.edit-public-profile h3 { margin-bottom: 20px; }
+.edit-public-profile h4 { font-size: 13px; margin-bottom: 15px; }
+
+.edit-public-profile label { float: left; display: inline; line-height: 28px; width: 132px; margin-right: 6px; text-align: right; }
+.edit-public-profile select { float: left; display: inline; width: 162px; margin: 6px 24px 0 10px;  }
+
+.edit-public-profile .selectClass { float: left; display: inline; width: 162px; margin: 6px 24px 0 0px;  }
+
+.edit-public-profile .txt { float: left; display: inline; border: 1px solid #ccc; background: #fff; width: 200px; height: 16px; font-size: 13px; color: #666; padding: 6px 5px; margin-bottom: 10px; }
+.edit-public-profile .txtsm { float: left; display: inline; border: 1px solid #ccc; background: #fff; width: 50px; height: 16px; font-size: 13px; color: #666; padding: 6px 5px; margin-bottom: 10px; }
+
+.edit-public-profile .details { margin-top: 30px; }
+.edit-public-profile .details textarea { float: left; display: inline; height: 64px; width: 472px; background: #fff; border: 1px solid #ccc; padding: 5px; font-size: 13px; color: #666; margin-bottom: 10px; }
+.edit-public-profile .details textarea .quote { height: 40px; width: 372px; }
+
+.edit-public-profile .picture { }
+.edit-public-profile .picture .file { float: left; display: inline; font-size: 13px; margin-top: 4px; width:300px; }
+
+.edit-public-profile .buttons { margin-left: 140px; }
+.edit-public-profile .buttons .button { padding-left: 20px; }
+.edit-public-profile .buttons .button span { padding-right: 20px; }
+
+
+
+/* Account Demo */
+
+.account_demo {  position: relative; margin-right: -20px; width: 700px; }
+.account_demo h3 { margin-bottom: 20px; }
+.account_demo h4 { font-size: 13px; margin-bottom: 15px; }
+
+.account_demo label { float: left; display: inline; line-height: 28px; width: 120px; margin-right: 6px; text-align: right; }
+.account_demo .sm { float: left; display: inline; line-height: 28px; width: 70px; margin-right: 6px; text-align: right; }
+.account_demo select { float: left; display: inline; width: 162px; margin: 6px 24px 0 0px;  }
+
+.account_demo .selectClass { float: left; display: inline; width: 162px; margin: 6px 24px 0 0px;  }
+
+.account_demo .field { float: left; display: inline; border: 1px solid #ccc; background: #fff; width:368px; height: 16px; font-size: 13px; color: #666; padding: 6px 5px; margin-bottom: 10px; }
+.account_demo .txt { float: left; display: inline; border: 1px solid #ccc; background: #fff; width:120px; height: 16px; font-size: 13px; color: #666; padding: 6px 5px; margin-bottom: 10px; }
+.account_demo .txtsm { float: left; display: inline; border: 1px solid #ccc; background: #fff; width: 50px; height: 16px; font-size: 13px; color: #666; padding: 6px 5px; margin-bottom: 10px; margin-right:10px; }
+.account_demo .Uname{margin-top:6px;}
+
+.account_demo .picture { }
+.account_demo .picture .file { float: left; display: inline; font-size: 13px; margin-top: 4px; width:300px; }
+
+.account_demo .buttons { margin-left: 140px; }
+.account_demo .buttons .button { padding-left: 20px; }
+.account_demo .buttons .button span { padding-right: 20px; }
+
+
+/*
+    Forgot Password
+*/
+.dvright
+{
+    width:200px;
+    float:left;
+    text-align:right;
+    padding-right:5px;
+}
+
+.required
+{
+    color:Red;
+}
+
+.errMsg
+{
+    padding-left:150px;
+}
+.txtBox
+{
+ font-size: 14px; color: #999; display: block;   
+  display: inline; border: 1px solid #ccc; background: #fff; width: 368px; height: 16px; font-size: 13px; color: #666; padding: 6px 5px; margin-bottom: 10px; 
+}
+.dvCheckbox
+{
+    padding-left:205px;
+    height:16px;
+    padding-top: 5px; 
+    padding-bottom:5px;
+}
+
+/* 
+    how it works 
+*/
+
+.howitworksol { list-style-type:decimal; }
+.howitworksol li
+{
+    padding:5px;
+}
+.boldPadding
+{
+    padding-right:10px;
+}
+.textpaddingWhyJoin
+{
+    padding-left:85px;
+}
+/*
+	Footer
+*/
+
+#footer { color: #666; padding-top: 10px; }
+#footer .fr span { color: #90b1c1; padding: 0 3px; }
+#footer .fr span a { color: #90b1c1; }
+#footer ul li { float: left; display: inline; margin-right: 5px; line-height: 20px; }
+
+
+/*dummy css classes for login and sign up popup */
+.dvlogin
+{
+}
+.dvsignup
+{
+}
+
+
+.selected{color:Red;}
+
+
+
+.loginpage .alternative { background: #e7edea; padding: 10px 10px 4px; height: 100%; margin: 0 1px; }
+.loginpage .alternative li { float: left; display: inline; line-height: 20px; background-repeat: no-repeat; background-position: 0 0; height: 30px; }
+.loginpage .alternative li.last { margin: 0; }
+.loginpage .alternative li a { color: #0099ff; }
+.loginpage .alternative li.google { padding-left: 26px; padding-right:46px; background-image: url(http://cloudspokes.s3.amazonaws.com/icon-google-login.gif); }
+.loginpage .alternative li.facebook { padding-left: 29px; padding-right:46px; background-image: url(http://cloudspokes.s3.amazonaws.com/icon-facebook-login.gif); }
+.loginpage .alternative li.twitter { padding-left: 27px; padding-right:46px; background-image: url(http://cloudspokes.s3.amazonaws.com/twitter-login.gif); }
+.loginpage .alternative li.boxnet { padding-left: 25px; margin-left:4px; padding-right:66px; background-image: url(http://cloudspokes.s3.amazonaws.com/icon-boxnet-login.png); }
+.loginpage .alternative li.github { padding-left: 23px; background-image: url(http://cloudspokes.s3.amazonaws.com/github.png); }
+.loginpage .alternative li.sfdc { padding-left: 23px; background-image: url(http://cloudspokes.s3.amazonaws.com/sfdc.jpg); }
+
+
+
+
+.contest-reviewer {  position: relative; margin-right: -20px; width: 700px; }
+.contest-reviewer h3 { margin-bottom: 20px; }
+.contest-reviewer h4 { font-size: 13px; margin-bottom: 15px; }
+
+.contest-reviewer label { float: left; display: inline; line-height: 28px; width: 132px; margin-right: 6px; text-align: right; }
+.contest-reviewer select { float: left; display: inline; width: 162px; margin: 6px 24px 0 10px;  }
+
+.contest-reviewer .selectClass { float: left; display: inline; width: 162px; margin: 6px 24px 0 0px;  }
+
+.contest-reviewer .txt { float: left; display: inline; border: 1px solid #ccc; background: #fff; width: 200px; height: 16px; font-size: 13px; color: #666; padding: 6px 5px; margin-bottom: 10px; }
+.contest-reviewer .txtsm { float: left; display: inline; border: 1px solid #ccc; background: #fff; width: 50px; height: 16px; font-size: 13px; color: #666; padding: 6px 5px; margin-bottom: 10px; }
+
+.contest-reviewer .details { margin-top: 30px; }
+.contest-reviewer .details textarea { float: left; display: inline; height: 64px; width: 472px; background: #fff; border: 1px solid #ccc; padding: 5px; font-size: 13px; color: #666; margin-bottom: 10px; }
+.contest-reviewer .details textarea .quote { height: 40px; width: 372px; }
+
+.contest-reviewer .picture { }
+.contest-reviewer .picture .file { float: left; display: inline; font-size: 13px; margin-top: 4px; width:300px; }
+
+.contest-reviewer .buttons { margin-left: 140px; }
+.contest-reviewer .buttons .button { padding-left: 20px; }
+.contest-reviewer .buttons .button span { padding-right: 20px; }
+
+
+.userroles {  position: relative; margin-right: -20px; width: 700px; }
+.userroles h3 { margin-bottom: 20px; }
+
+
+/*badges*/
+
+.technologyBadgesdiv
+{
+    float: left; width: 155px; text-align: center; height:105px;
+}
+
+#badgesMain
+{
+    background-color: #FFF; padding: 20px; font-family: Arial, Helvetica, sans-serif;
+}
+.team
+{
+}
+
+.team .field { float: left; display: inline; border: 1px solid #ccc; background: #fff; width: 130px; height: 16px; font-size: 13px; color: #666; padding: 6px 5px; margin-bottom: 10px; }
+
+.team th.first { border-left: 1px solid #e9e9e9; padding: 0; width:200px; text-align:left;padding-left: 8px;  }
+.team th.last { border-right: 1px solid #e9e9e9; padding-right: 0; width:200px; text-align:left;}
+.team td { padding: 8px 11px; border-bottom: 1px solid #ccc; color: #333; height: 100%; width:200px; text-align:left;}
+.team td.first { border-left: 1px solid #ccc; width:200px; text-align:left; padding-left: 8px;}
+.team td.last { border-right: 1px solid #ccc; text-align: left; width:200px;}
+.team th { height: 35px; background: url(http://cloudspokes.s3.amazonaws.com/transactions-th-bg.gif) repeat-x 0 0; line-height: 35px; padding: 0 9px; border-left: 1px solid #fff; border-right: 1px solid #ccc; font-size :12px; text-align: left; width:200px;}
+
+.badgesmainA
+{
+   
+}
+.techbadgesA
+{
+}
+.techbadgesA
+{
+    
+}
+
+.techbadgesA:hover img
+{
+    
+}
+
+.badgesmainA:hover
+{
+   text-decoration:none;
+}
+
+.divBadgespopUp
+{
+    width: 400px;
+     padding: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+    display: none;
+    border: 2px solid #AFAFAF;
+    margin-bottom:10px;
+}
+
+.divBadgePopupText
+{
+    float: left; width: 240px; margin-left: 10px; margin-top: 15px;
+}
+
+
+.developSkillbadges
+{
+    border-right: 2px solid #AFAFAF;
+    float:left;
+    width:450px;
+}
+
+.developSkillbadgetextdiv
+{
+    float: left; width: 300px;
+}
+.developSkillbadgeimgdiv
+{
+    float: left; width: 148px;
+}

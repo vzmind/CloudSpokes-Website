@@ -7,7 +7,7 @@
             .text-holder
               %h4
                 %a{:href => "profile.html?username=Kenji776"}
-                  = "Kenji776"
+                  = member["Name"]
                 %span.stats
                   = "Following:"
                   = "0"
@@ -16,9 +16,9 @@
                   = "# of Wins:"
                   = "11"
             .cl= " "
-        .user-desc.fr
-          %p
-            %strong= "About Me:"
-            = "Just a young punk programmer hacking it out one line at a time. I work full time at Food Perspective in Minnesota. When I'm not mashing a keyboard you'll probably find me in the gym, or in front of a grill. I also dig philosophy, beer brewing, camping and martial arts."
-            %a{:href => "profile.html?username=Kenji776"}= "View Profile"
-        .cl= " "
+      .user-desc.fr
+        %p
+          %strong= "About Me:"
+          = "Just a young punk programmer hacking it out one line at a time. I work full time at Food Perspective in Minnesota. When I'm not mashing a keyboard you'll probably find me in the gym, or in front of a grill. I also dig philosophy, beer brewing, camping and martial arts."
+          %a{:href => "profile.html?username=Kenji776"}= "View Profile"
+      .cl= " "
