@@ -1,0 +1,8 @@
+.content-wrapper.two-cols-bg
+  .widecolumn.fl
+    .list-members
+      - @members.each do |record|
+        = render "member"
+        = record[ "Name" ]
+        %br
+
