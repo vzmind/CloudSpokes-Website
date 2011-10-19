@@ -3,7 +3,6 @@ require "members"
 class MembersController < ApplicationController
 
   def index
-    @members = Members.get_members()
-    # puts @challenges
+    @members = Members.all(:fields => "id,name,email__c")
   end
 end
