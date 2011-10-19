@@ -14,6 +14,7 @@ group :development, :test do
   gem 'growl'
   gem 'rb-fsevent'
   gem 'ruby-debug19'
+  gem 'heroku'
 end
 
 group :test do
