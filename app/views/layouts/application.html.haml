@@ -1,0 +1,43 @@
+%html
+  %head
+    %title= "CloudSpokes"
+    %link{:href => 'http://fonts.googleapis.com/css?family=Marvel:400,400italic,700,700italic', :rel => 'stylesheet', :type => 'text/css'}
+    = stylesheet_link_tag    "style" 
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body{:id => controller.controller_name + "_" + controller.action_name, :class => controller.controller_name}
+    #wrapper
+      %header#top
+        %h1#logo
+          = link_to "CloudSpokes", "/"
+        %nav#menu
+          %ul
+            %li= link_to "Members", "/members/index"
+            %li= link_to "Challenges", "/challenges/index"
+            %li= link_to "Badges", "#"
+            %li= link_to "Account", "#"
+        %nav#side_menu
+          %ul
+            %li= link_to "How it Works", content_path("about")
+            %li= link_to "Blog", "http://blog.cloudspokes.com/"
+            %li= link_to "FAQ", content_path("faq")
+      %section#content
+        = yield
+      %footer#bottom
+        %aside.left
+          %span.attribution
+            = "created by"
+            = link_to "Appirio", "http://www.appirio.com/"
+          %nav.social_links
+            %ul
+              %li= link_to s3_image("icon-digg.gif"),       "http://digg.com/CloudSpokes", target: '_blank'
+              %li= link_to s3_image("icon-delicious.gif"),  "http://delicious.com/cloudspokes", target: '_blank'
+              %li= link_to s3_image("icon-technorati.gif"), "http://technorati.com/people/cloudspokes", target: '_blank'
+              %li= link_to s3_image("icon-twitter.gif"),    "http://twitter.com/cloudspokes", target: '_blank'
+              %li= link_to s3_image("icon-facebook.gif"),   "http://www.facebook.com/CloudSpokes", target: '_blank'
+        %nav.right
+          %ul
+            %li= link_to "Privacy", content_path("privacy")
+            %li= link_to "Terms", content_path("tos")
+            %li= link_to "Log a bug!", "https://spreadsheets.google.com/a/appirio.com/viewform?hl=en&formkey=dGdmWHNGdjdQRk1ZUzdacVl4QXFualE6MQ&ndplr=1#gid=0"
