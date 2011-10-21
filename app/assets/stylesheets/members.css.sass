@@ -5,7 +5,12 @@
   height: 25px
   background: url(http://cloudspokes.s3.amazonaws.com/help-nav-bg.gif)
   padding: 10px 20px
-  line-height: 25px
+  .sort ul li.current_sort
+    background: url("http://cloudspokes.s3.amazonaws.com/bullet-1.gif") no-repeat scroll 0 center transparent
+    padding-left: 10px
+    font-weight: bold
+    a
+      color: black
   .sort ul li
     float: left
     display: inline
@@ -29,6 +34,7 @@
         text-decoration: none
         color: #000
 
+
 #search
   float: right
   display: inline
@@ -42,11 +48,11 @@
   .field
     float: left
     display: inline
-    width: 219px
+    width: 200px
     height: 16px
     border: 0
     background: none
-    padding: 5px 8px
+    padding: 0px 8px
     font-size: 13px
     font-style: italic
     color: #A3A5A4

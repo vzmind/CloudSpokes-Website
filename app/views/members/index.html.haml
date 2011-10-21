@@ -8,21 +8,18 @@
   .sort.fl
     %ul
       %li= "SORT"
-      %li
-        %a{:href => "javascript:__doPostBack('ctl00$Body$lnkName','')", :id => "ctl00_Body_lnkName"}>
-          name
-      %li
-        %a#ctl00_Body_lnkHighestWinRate.dd{:href => "javascript:__doPostBack('ctl00$Body$lnkHighestWinRate','')"}
-          highest win rate
-      %li
-        %a#ctl00_Body_lnkMostActive{:href => "javascript:__doPostBack('ctl00$Body$lnkMostActive','')"}
-          most active
+      %li{:class => params[:sort_by] == "name" ? "current_sort" : ""}
+        = link_to "Name", members_sort_by_name_path
+      %li{:class => params[:sort_by] == "total_wins__c" ? "current_sort" : ""}
+        = link_to "Highest win rate", members_sort_by_win_path
+      %li{:class => params[:sort_by] == "challenges_entered__c" ? "current_sort" : ""}
+        = link_to "Most active", members_sort_by_active_path
   #search
-    %fieldset
-      %input#ctl00_Body_txtname{:type => "text", :value => "search members", :title => "search members", :class => "field blink", :name => "ctl00$Body$txtname"}
-        %span#ctl00_Body_regUsername{:style => "color:Red;display:none;"}
-        #ctl00_Body_vsRegister{:style => "color:Red;display:none;"}
-          %input.submit.notext#ctl00_Body_btnGo{:type => "submit", :onclick => "javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$Body$btnGo&quot;, &quot;&quot;, true, &quot;search&quot;, &quot;&quot;, false, false))", :value =>"go", :name =>"ctl00$Body$btnGo"}
+    %form{:action => "/members/search", :method => "post"}
+      %fieldset
+        %input{:type => "text", :value => "search members", :onclick => "this.value=''", :title => "search members", :class => "field blink", :name => "query"}
+          %span{:style => "color:Red;float:right;"}
+            %input.submit{:type => "submit", :value =>"", :name =>""}
 
 .content-wrapper.two-cols-bg
   .widecolumn

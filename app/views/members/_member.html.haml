@@ -20,5 +20,5 @@
         %p
           %strong= "About Me:"
           = member["Summary_Bio__c"]
-          %a{:href => "/members/" + "1234"}= "View Profile"
+          %a{:href => member_path(member["Name"])}= "View Profile"
       .cl= " "

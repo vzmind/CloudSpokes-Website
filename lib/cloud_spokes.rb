@@ -13,16 +13,19 @@ class CloudSpokes
   # generic get with given options
   def self.get_sobjects(options)
     if AvailableObjects.include?(self.to_s.downcase)
-      request_url = BASE_URL + self.to_s.downcase + "?fields=" + options[:fields]
+      request_url  = BASE_URL + self.to_s.downcase + "?fields=" + options[:select]
+      request_url += ("&orderby=" + options[:order_by]) unless options[:order_by].nil?
+      request_url += ("&search=" + options[:where]) unless options[:where].nil?
+
       get(request_url)
     end
   end
 
   # Access all records of a given sObject
-  def self.all(options = {:fields => "id,name"})
-    get_sobjects(:fields => options[:fields])
+  def self.all(options = {:select => "id,name", :order_by => nil, :where => nil})
+    get_sobjects(:select => options[:select], :order_by => options[:order_by], :where => options[:where])
   end
-  
+
   # Create generic methods for get_<sObject_name> methods
   AvailableObjects.each do |sobject|
     class_eval <<-EOS
