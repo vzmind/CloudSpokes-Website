@@ -6,7 +6,7 @@
           %img.member-pic{:style => "height:48px;width:48px;border-width:0px;", :src => member["Profile_Pic__c"], :id =>member["Id"]}
             .text-holder
               %h4
-                %a{:href => member["Profile_Pic__c"]}
+                %a{:href => member_path(member["Name"])}
                   = member["Name"]
                 %span.stats
                   = "Following:"

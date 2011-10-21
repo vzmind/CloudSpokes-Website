@@ -1,0 +1,70 @@
+.content-wrapper.two-cols-bg
+  .widecolumn.fl
+    .list-challenges
+      %h3= "#{@active_challenges.size} active challenges"
+      - if @active_challenges.count == 0 
+        %div{:style => "text-align:center"}
+          %b No active challenge found
+      - @active_challenges.each do |active_challenge|
+        = render "challenge", :active_challenge => active_challenge
+
+    .list-challenges
+      %h3= "#{@past_challenges.size} past challenges"
+      - if @past_challenges.count == 0
+        %div{:style => "text-align:center"}
+          %b No past challenge found
+      - @past_challenges.each do |past_challenge|
+        = render "challenge", :past_challenge => past_challenge
+
+    .recommendations
+      %ul
+        %li.recommend
+          %a{:href => "#"}= "Recommend #{@member["Name"]}"
+        %li.last Show all
+      %h3= "#{@recommendations.size} recommendations"
+      - if @recommendations.count == 0
+        %div{:style => "text-align:center"}
+          %b No recommendation found
+      - @recommendations.each do |recommendation|
+        = render "recommendation", :recommendation => recommendation
+
+  .sidebar.fr
+    .profile
+      %img.fl{:width => "100px", :height => "100px", :src =>  @member["Profile_Pic__c"]}
+      .profile-info.fl
+        %h4
+          %span= @member["Name"].upcase
+        %span
+        %span
+          %span= "FRANCE"
+      .cl= " "
+      %p
+        %strong About me :
+        %span= @member["Summary_Bio__c"]
+        %br
+        %strong Quote :
+        %span= @member["Summary_Bio__c"]
+      .actions
+        %ul
+          %li.recommend
+            %a{:href => "#"} Recommend
+        .cl
+    %a{:href => "#"}
+      %h3 Stats & Achievements
+    .stats
+      %ul
+        %li
+          %strong name
+          value
+        %li
+          %strong name
+          value
+    .achievements
+      %ul
+        %li 1
+        %li 2
+        %li 3
+    %h3 Social
+    .socials
+
+

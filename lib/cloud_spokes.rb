@@ -3,7 +3,7 @@ class CloudSpokes
   include HTTParty 
   format :json
 
-  AvailableObjects = ["challenges","members"]
+  AvailableObjects = ["challenges","members","recommendations","challenges"]
   BASE_URL         = 'https://na12.salesforce.com/services/apexrest/v.9/'
 
     
