@@ -4,7 +4,7 @@ require "challenges"
 
 class AccountsController < ApplicationController
 
-  def show
+  def challenges
     @account             = Members.find(params[:id])
     @challenges          = Members.challenges(:name => @account["Name"])
 
@@ -14,7 +14,11 @@ class AccountsController < ApplicationController
 
     @challenges.each do |challenge|
       if challenge["End_Date__c"].to_date > Time.now.to_date
-        @active_challenges << challenge
+        if challenge['Challenge_Participants__r']['records'].first['Status__c'] == "Watching"
+          @followed_challenges << challenge
+        else
+          @active_challenges << challenge
+        end
       else
         @past_challenges << challenge
       end
