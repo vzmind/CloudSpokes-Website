@@ -1,6 +1,3 @@
-require "members"
-require "recommendations"
-require "challenges"
 
 class AccountsController < ApplicationController
   before_filter :get_account
