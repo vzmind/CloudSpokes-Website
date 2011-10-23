@@ -25,4 +25,12 @@ class AccountsController < ApplicationController
     end
   end
 
+  def details
+    @account = Members.find(params[:id])
+    if params["form_details"]
+      Members.update(@account["Name"],params["form_details"])
+    end
+    @account = Members.find(params[:id])
+  end
+
 end

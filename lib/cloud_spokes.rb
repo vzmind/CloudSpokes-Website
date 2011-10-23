@@ -21,6 +21,16 @@ class CloudSpokes
     end
   end
 
+  # update a particular object
+  def self.update(id,params)
+    if AvailableObjects.include?(self.to_s.downcase)
+      request_url  = BASE_URL + self.to_s.downcase + "/" + id
+
+      put(request_url,:query => params)
+    end
+  end
+  
+
   # retrieve a particular object
   def self.find(id)
     if AvailableObjects.include?(self.to_s.downcase)
