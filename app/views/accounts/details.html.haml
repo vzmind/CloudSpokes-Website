@@ -5,36 +5,36 @@
       .menu.menu-separator
         %ul
           %li
-            %a.active{:href => "/account/a0GU0000000c8xiMAA/details"} 
+            %a.active
               account details
           %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/details"} 
+            %a{:href => "/account/a0GU0000000c8xiMAA/school"}
               school & work info
           %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/details"} 
+            %a{:href => "/account/a0GU0000000c8xiMAA/details"}
               edit public profile
           %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/details"} 
+            %a{:href => "/account/a0GU0000000c8xiMAA/details"}
               change password
       .menu
         %ul
           %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/challenges"} 
+            %a{:href => "/account/a0GU0000000c8xiMAA/challenges"}
               my challenges
           %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/details"} 
+            %a{:href => "/account/a0GU0000000c8xiMAA/details"}
               Discussions
           %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/details"} 
+            %a{:href => "/account/a0GU0000000c8xiMAA/details"}
               outstanding reviews
 
     .widecolumn.fr
-      #account-details
+      #account
         %h3 Account details
         %p
           Sometimes we need to send you stuff. Like award money. So keep your contact info up to date so we can get in touch! We promise to never ever use your informations for evil (unless we have your permission).
         .cl= " "
-        = form_tag("/account/a0GU0000000c8xiMAA/details", :name => "form_details") 
+        = form_tag("/account/a0GU0000000c8xiMAA/details", :name => "form_details")
         %label
           %span.required *
           First Name:
@@ -100,7 +100,7 @@
             %a.button{:href => "#", :onclick => "document['form_details'].submit()"}
               %span Submit
           %div{:style => "float:left"}
-            %a.button{:href => "#"}
+            %a.button{:href => "/account/a0GU0000000c8xiMAA/details"}
               %span Cancel
 
 

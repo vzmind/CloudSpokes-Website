@@ -3,9 +3,9 @@ require "recommendations"
 require "challenges"
 
 class AccountsController < ApplicationController
+  before_filter :get_account
 
   def challenges
-    @account             = Members.find(params[:id])
     @challenges          = Members.challenges(:name => @account["Name"])
 
     @followed_challenges = []
@@ -26,11 +26,20 @@ class AccountsController < ApplicationController
   end
 
   def details
-    @account = Members.find(params[:id])
     if params["form_details"]
       Members.update(@account["Name"],params["form_details"])
     end
     @account = Members.find(params[:id])
   end
 
+  def school
+    if params["form_school"]
+      Members.update(@account["Name"],params["form_school"])
+    end
+    @account = Members.find(params[:id])
+  end
+
+  def get_account
+    @account = Members.find(params[:id])
+  end
 end

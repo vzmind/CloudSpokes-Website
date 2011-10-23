@@ -7,7 +7,7 @@ Cloudspokes::Application.routes.draw do
   resources :members
 
   match "/account/:id/challenges"   => "accounts#challenges"
-  match "/account/:id/demo"         => "accounts#demo"
+  match "/account/:id/school"       => "accounts#school"
   match "/account/:id/details"      => "accounts#details"
   match "/account/:id/password"     => "accounts#password"
 
