@@ -3,9 +3,9 @@ class CloudSpokes
   include HTTParty 
   format :json
 
-  AvailableObjects = ["challenges","members","recommendations","challenges"]
+  AvailableObjects = ["challenges","members","recommendations","challenges","participants"]
   BASE_URL         = 'https://na12.salesforce.com/services/apexrest/v.9/'
-
+  SFDC_URL         = 'https://na12.salesforce.com/services/data/v20.0/sobjects/'
     
   headers 'Content-Type' => 'application/json' 
   headers 'Authorization' => "OAuth #{ENV['access_token']}"
@@ -21,6 +21,15 @@ class CloudSpokes
     end
   end
 
+  # retrieve a particular object
+  def self.find(id)
+    if AvailableObjects.include?(self.to_s.downcase)
+      request_url  = SFDC_URL + self.to_s.singularize.capitalize + "__c/" + id
+
+      get(request_url)
+    end
+  end
+  
   # Access all records of a given sObject
   def self.all(options = {:select => "id,name", :order_by => nil, :where => nil})
     get_sobjects(:select => options[:select], :order_by => options[:order_by], :where => options[:where])
@@ -35,5 +44,5 @@ class CloudSpokes
       end
     EOS
   end
-
 end
+

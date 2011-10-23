@@ -12,8 +12,17 @@ class MembersController < ApplicationController
   def show
     @member            = Members.all(:select => DEFAULT_MEMBER_FIELDS,:where => params[:id]).first
     @recommendations   = Recommendations.all(:select => DEFAULT_RECOMMENDATION_FIELDS,:where => @member["Name"])
-    @active_challenges = Challenges.all(:select => DEFAULT_CHALLENGE_FIELDS,:where => @member["Name"])
-    @past_challenges   = Challenges.all(:select => DEFAULT_CHALLENGE_FIELDS,:where => @member["Name"])
+    @challenges        = Members.challenges(:name => @member["Name"])
+
+    @active_challenges = []
+    @past_challenges   = []
+    @challenges.each do |challenge|
+      if challenge["End_Date__c"].to_date > Time.now.to_date
+        @active_challenges << challenge
+      else
+        @past_challenges << challenge
+      end
+    end
   end
 
   def search
