@@ -5,6 +5,13 @@ Cloudspokes::Application.routes.draw do
   match "/members/sort_by_active" => "members#index", :defaults => { :sort_by => 'challenges_entered__c' }
   match "/members/search"         => "members#search"
   resources :members
+  resources :accounts do
+    get "demo"
+    get "challenges"
+    get "details"
+    get "password"
+  end
+
   match "/:id", to: "content#show", as: "content"
   
   get 'challenges/index'
