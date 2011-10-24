@@ -6,4 +6,6 @@
       %br
       - @challenges.each do |challenge|
         = render "challenge", :challenge => challenge
+      .fr
+        = will_paginate @challenges
 

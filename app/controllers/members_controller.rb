@@ -1,6 +1,7 @@
 require "members"
 require "recommendations"
 require "challenges"
+require 'will_paginate/array'
 
 class MembersController < ApplicationController
 
@@ -36,12 +37,14 @@ class MembersController < ApplicationController
   def past_challenges
     @member = Members.find(params[:id])
     @challenges = Members.challenges(:name => @member["Name"]).select{|c| c["End_Date__c"].to_date < Time.now.to_date}
+    @challenges = @challenges.paginate(:page => params[:page] || 1, :per_page => 1) 
     render 'challenges'
   end
 
   def active_challenges
     @member = Members.find(params[:id])
     @challenges = Members.challenges(:name => @member["Name"]).select{|c| c["End_Date__c"].to_date > Time.now.to_date}
+    @challenges = @challenges.paginate(:page => params[:page] || 1, :per_page => 1) 
     render 'challenges'
   end
 end

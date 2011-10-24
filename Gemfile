@@ -4,6 +4,7 @@ gem 'rails', '3.1.0'
 gem 'compass', git: 'git://github.com/chriseppstein/compass.git'
 gem 'databasedotcom'
 gem 'haml'
+gem 'will_paginate'
 
 
 group :development, :test do

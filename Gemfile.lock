@@ -235,6 +235,7 @@ GEM
       multi_json (>= 1.0.2)
     uuid (2.3.4)
       macaddr (~> 1.0)
+    will_paginate (3.0.2)
 
 PLATFORMS
   ruby
@@ -259,3 +260,4 @@ DEPENDENCIES
   sass-rails (~> 3.1.0)
   turn
   uglifier
+  will_paginate
