@@ -8,6 +8,7 @@ class MembersController < ApplicationController
   def index
     order_by  = params[:order_by] || "name"
     @members = Members.all(:select => DEFAULT_MEMBER_FIELDS,:order_by => order_by)
+    # Sorting order hacked here cause not available in the CloudSpokes API
     if params[:order_by] == "total_wins__c" or params[:order_by] == "challenges_entered__c"
       @members = @members.reverse
     end
@@ -34,6 +35,7 @@ class MembersController < ApplicationController
     render :index
   end
 
+  # Need refactor and merge with active_challenges action
   def past_challenges
     @member = Members.find(params[:id])
     @challenges = Members.challenges(:name => @member["Name"]).select{|c| c["End_Date__c"].to_date < Time.now.to_date}
