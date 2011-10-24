@@ -5,8 +5,11 @@ require "challenges"
 class MembersController < ApplicationController
 
   def index
-    sort_by  = params[:sort_by] || "name"
-    @members = Members.all(:select => DEFAULT_MEMBER_FIELDS,:order_by => sort_by)
+    order_by  = params[:order_by] || "name"
+    @members = Members.all(:select => DEFAULT_MEMBER_FIELDS,:order_by => order_by)
+    if params[:order_by] == "total_wins__c" or params[:order_by] == "challenges_entered__c"
+      @members = @members.reverse
+    end
   end
 
   def show
@@ -28,5 +31,17 @@ class MembersController < ApplicationController
   def search
     @members = Members.all(:select => DEFAULT_MEMBER_FIELDS, :where => params[:query])
     render :index
+  end
+
+  def past_challenges
+    @member = Members.find(params[:id])
+    @challenges = Members.challenges(:name => @member["Name"]).select{|c| c["End_Date__c"].to_date < Time.now.to_date}
+    render 'challenges'
+  end
+
+  def active_challenges
+    @member = Members.find(params[:id])
+    @challenges = Members.challenges(:name => @member["Name"]).select{|c| c["End_Date__c"].to_date > Time.now.to_date}
+    render 'challenges'
   end
 end

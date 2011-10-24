@@ -9,7 +9,7 @@
           %p
             %strong= challenge['Challenge_Participants__r']['records'].first['Status__c']
             %br
-            = "#{challenge['Challenge_Participants__r']['records'].first['Money_Awarded__c']}$ for"
+            = "#{challenge['Challenge_Participants__r']['records'].first['Money_Awarded__c'].round}$ for"
             %br
             %span
               - challenge["Challenge_Categories__r"]["records"].each do |category|

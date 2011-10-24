@@ -1,14 +1,20 @@
 .content-wrapper.two-cols-bg
   .widecolumn.fl
     .list-challenges
+      - if @active_challenges.size > 1
+        %a.fr{:href => "/members/%s/active_challenges" % @member["Id"]}
+          See all »
       %h3= "#{@active_challenges.size} active challenges"
       - if @active_challenges.count == 0 
         %div{:style => "text-align:center"}
           %b No active challenge found
-      - @active_challenges.each do |active_challenge|
+      - @active_challenges[0..2].each do |active_challenge|
         = render "challenge", :challenge => active_challenge
 
     .list-challenges
+      - if @past_challenges.size > 0
+        %a.fr{:href => "/members/%s/past_challenges" % @member["Id"]}
+          See all »
       %h3= "#{@past_challenges.size} past challenges"
       - if @past_challenges.count == 0
         %div{:style => "text-align:center"}

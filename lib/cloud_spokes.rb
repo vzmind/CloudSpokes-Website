@@ -6,7 +6,7 @@ class CloudSpokes
   AvailableObjects = ["challenges","members","recommendations","challenges","participants"]
   BASE_URL         = 'https://na12.salesforce.com/services/apexrest/v.9/'
   SFDC_URL         = 'https://na12.salesforce.com/services/data/v20.0/sobjects/'
-    
+
   headers 'Content-Type' => 'application/json' 
   headers 'Authorization' => "OAuth #{ENV['access_token']}"
 
@@ -16,6 +16,7 @@ class CloudSpokes
       request_url  = BASE_URL + self.to_s.downcase + "?fields=" + options[:select]
       request_url += ("&orderby=" + options[:order_by]) unless options[:order_by].nil?
       request_url += ("&search=" + options[:where]) unless options[:where].nil?
+      request_url += ("&limit=" + options[:limit]) unless options[:limit].nil?
 
       get(request_url)
     end

@@ -1,9 +1,11 @@
 Cloudspokes::Application.routes.draw do
   root to: 'content#show', id: 'home'
-  match "/members/sort_by_name"   => "members#index", :defaults => { :sort_by => 'name' }
-  match "/members/sort_by_win"    => "members#index", :defaults => { :sort_by => 'total_wins__c' }
-  match "/members/sort_by_active" => "members#index", :defaults => { :sort_by => 'challenges_entered__c' }
-  match "/members/search"         => "members#search"
+  match "/members/order_by_name"   => "members#index", :defaults => { :order_by => 'name' }
+  match "/members/order_by_win"    => "members#index", :defaults => { :order_by => 'total_wins__c' }
+  match "/members/order_by_active" => "members#index", :defaults => { :order_by => 'challenges_entered__c' }
+  match "/members/search"          => "members#search"
+  match "/members/:id/past_challenges"    => "members#past_challenges"
+  match "/members/:id/active_challenges"  => "members#active_challenges"
   resources :members
 
   match "/account/:id/challenges"   => "accounts#challenges"

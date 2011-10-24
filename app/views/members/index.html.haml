@@ -8,12 +8,12 @@
   .sort.fl
     %ul
       %li= "SORT"
-      %li{:class => params[:sort_by] == "name" ? "current_sort" : ""}
-        = link_to "Name", members_sort_by_name_path
-      %li{:class => params[:sort_by] == "total_wins__c" ? "current_sort" : ""}
-        = link_to "Highest win rate", members_sort_by_win_path
-      %li{:class => params[:sort_by] == "challenges_entered__c" ? "current_sort" : ""}
-        = link_to "Most active", members_sort_by_active_path
+      %li{:class => params[:order_by] == "name" ? "current_sort" : ""}
+        = link_to "Name", members_order_by_name_path
+      %li{:class => params[:order_by] == "total_wins__c" ? "current_sort" : ""}
+        = link_to "Highest win rate", members_order_by_win_path
+      %li{:class => params[:order_by] == "challenges_entered__c" ? "current_sort" : ""}
+        = link_to "Most active", members_order_by_active_path
   #search
     %form{:action => "/members/search", :method => "post"}
       %fieldset

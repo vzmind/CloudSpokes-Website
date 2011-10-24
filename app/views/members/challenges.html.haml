@@ -1,0 +1,9 @@
+.content-wrapper
+  .full-width-challenges
+    .list-challenges
+      %a.fl{:href => member_path(@member["Name"])}
+        = "« Back "
+      %br
+      - @challenges.each do |challenge|
+        = render "challenge", :challenge => challenge
+
