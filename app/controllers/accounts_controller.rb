@@ -3,12 +3,14 @@ class AccountsController < ApplicationController
   before_filter :get_account, :except => ["require_password","reset_password"]
 
   def challenges
+    # Gather challenges for sorting
     @challenges          = Members.challenges(:name => @account["Name"])
 
     @followed_challenges = []
     @active_challenges   = []
     @past_challenges     = []
 
+    # Sort challenges depending of the end date or status
     @challenges.each do |challenge|
       if challenge["End_Date__c"].to_date > Time.now.to_date
         if challenge['Challenge_Participants__r']['records'].first['Status__c'] == "Watching"
@@ -22,6 +24,7 @@ class AccountsController < ApplicationController
     end
   end
 
+  # Member details info tab
   def details
     if params["form_details"]
       Members.update(@account["Name"],params["form_details"])
@@ -29,6 +32,7 @@ class AccountsController < ApplicationController
     @account = Members.find(params[:id])
   end
 
+  # School & Work info tab
   def school
     if params["form_school"]
       Members.update(@account["Name"],params["form_school"])

@@ -7,7 +7,9 @@ require 'will_paginate/array'
 class MembersController < ApplicationController
 
   def index
+    # Define the default order criteria
     order_by  = params[:order_by] || "name"
+
     @members = Members.all(:select => DEFAULT_MEMBER_FIELDS,:order_by => order_by)
     #
     # Sorting order hacked here cause not available in the CloudSpokes API
@@ -17,10 +19,13 @@ class MembersController < ApplicationController
   end
 
   def show
+    # Gather all required information for the page
     @member            = Members.all(:select => DEFAULT_MEMBER_FIELDS,:where => params[:id]).first
+
     @recommendations   = Recommendations.all(:select => DEFAULT_RECOMMENDATION_FIELDS,:where => @member["Name"])
     @challenges        = Members.challenges(:name => @member["Name"])
 
+    # Gather challenges and group them depending of their end date
     @active_challenges = []
     @past_challenges   = []
     @challenges.each do |challenge|
@@ -34,11 +39,12 @@ class MembersController < ApplicationController
 
   def search
     @members = Members.all(:select => DEFAULT_MEMBER_FIELDS, :where => params[:query])
-    render :index
+    render 'index'
   end
 
-  # Need refactor and merge with active_challenges action
+  # Need a merge of those 2 actions
   def past_challenges
+    # NOTE: per_page is forced to 1
     @member = Members.find(params[:id])
     @challenges = Members.challenges(:name => @member["Name"]).select{|c| c["End_Date__c"].to_date < Time.now.to_date}
     @challenges = @challenges.paginate(:page => params[:page] || 1, :per_page => 1) 
@@ -46,6 +52,7 @@ class MembersController < ApplicationController
   end
 
   def active_challenges
+    # NOTE: per_page is forced to 1
     @member = Members.find(params[:id])
     @challenges = Members.challenges(:name => @member["Name"]).select{|c| c["End_Date__c"].to_date > Time.now.to_date}
     @challenges = @challenges.paginate(:page => params[:page] || 1, :per_page => 1) 

@@ -1,3 +1,9 @@
+# This object is the main entry point for connection to SFDC and DBDC
+# All sObjects inherit from him and can use generic methods like
+#   object.all
+#   object.find
+#   object.update
+
 class CloudSpokes 
 
   include HTTParty 
@@ -22,7 +28,7 @@ class CloudSpokes
     end
   end
 
-  # update a particular object
+  # update a given object
   def self.update(id,params)
     if AvailableObjects.include?(self.to_s.downcase)
       request_url  = BASE_URL + self.to_s.downcase + "/" + id
@@ -32,7 +38,7 @@ class CloudSpokes
   end
   
 
-  # retrieve a particular object
+  # return a particular object
   def self.find(id)
     if AvailableObjects.include?(self.to_s.downcase)
       request_url  = SFDC_URL + self.to_s.singularize.capitalize + "__c/" + id
@@ -41,7 +47,7 @@ class CloudSpokes
     end
   end
   
-  # Access all records of a given sObject
+  # return all records of a given sObject
   def self.all(options = {:select => "id,name", :order_by => nil, :where => nil})
     get_sobjects(:select => options[:select], :order_by => options[:order_by], :where => options[:where])
   end
