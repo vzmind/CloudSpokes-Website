@@ -1,39 +1,14 @@
 .content-wrapper.left-sidebar.top-border
   #account
     .sidebar.fl
-      %h3 Account settings
-      .menu.menu-separator
-        %ul
-          %li
-            %a.active
-              account details
-          %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/school"}
-              school & work info
-          %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/details"}
-              edit public profile
-          %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/details"}
-              change password
-      .menu
-        %ul
-          %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/challenges"}
-              my challenges
-          %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/details"}
-              Discussions
-          %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/details"}
-              outstanding reviews
+      = render 'menu', :selected_item => "account_details"
 
     .widecolumn.fr
       #account
         %h3 Account details
         %p
           Sometimes we need to send you stuff. Like award money. So keep your contact info up to date so we can get in touch! We promise to never ever use your informations for evil (unless we have your permission).
-        .cl= " "
+        .cl
         = form_tag("/account/a0GU0000000c8xiMAA/details", :name => "form_details")
         %label
           %span.required *
@@ -44,7 +19,7 @@
         %div{:style => "padding-top:6px;"}
           %span.Uname
             = @account["Name"]
-        .cl= " "
+        .cl
         %label
           Last Name:
         %input.txt{:maxlength => 100, :name => "form_details[last_name__c]", :value => @account["Last_Name__c"]}
@@ -52,18 +27,18 @@
           %span.required *
           Email Address:
         %input.txt{:maxlength => 250, :name => "form_details[email__c]", :value => @account["Email__c"]}
-        .cl= " "
+        .cl
         %hr
         %label
           %span.required *
           Address:
         %input.field{:maxlength => 100, :name => "form_details[address_line1__c]", :value => @account["Address_Line1__c"]}
-        .cl= " "
+        .cl
         %label
           %span.required *
           Address 2:
         %input.field{:maxlength => 100, :name => "form_details[address_line2__c]", :value => @account["Address_Line2__c"]}
-        .cl= " "
+        .cl
         %label
           %span.required *
           City:
@@ -76,24 +51,24 @@
           %span.required *
           Zip:
         %input.txt{:maxlength => 11, :name => "form_details[zip__c]", :value => @account["Zip__c"]}
-        .cl= " "
+        .cl
         %label
           %span.required *
           Country:
         = country_select(:form_details, :country__c,  @account["Country__c"] =>  @account["Country__c"]  )
-        .cl= " "
+        .cl
         %label
           %span.required *
           Main Phone:
         %input.txtsm{:maxlength => 5, :name => "", :value => "toto"}
         %input.txtsm{:maxlength => 5, :name => "", :value => "toto"}
         %input.txtsm{:maxlength => 6, :name => "", :value => "toto"}
-        .cl= " "
+        .cl
         %label
           %span.required *
           Time Zone:
         = time_zone_select(:form_details, :time_zone__c)
-        .cl= " "
+        .cl
         %br
         #button-right.buttons
           %div{:style => "float:left;padding-right:10px;"}

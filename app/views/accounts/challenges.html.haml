@@ -1,32 +1,8 @@
 .content-wrapper.left-sidebar.top-border
   #account
     .sidebar.fl
-      %h3 Account settings
-      .menu.menu-separator
-        %ul
-          %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/details"} 
-              account details
-          %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/school"} 
-              school & work info
-          %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/details"} 
-              edit public profile
-          %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/details"} 
-              change password
-      .menu
-        %ul
-          %li
-            %a.active my challenges
-          %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/details"} 
-              Discussions
-          %li
-            %a{:href => "/account/a0GU0000000c8xiMAA/details"} 
-              outstanding reviews
-
+      = render 'menu', :selected_item => "my_challenges"
+      
     .widecolumn.fr
       #project-overview
         %h3 X Followed Challenges

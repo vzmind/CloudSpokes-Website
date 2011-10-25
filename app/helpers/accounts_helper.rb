@@ -1,4 +1,28 @@
 module AccountsHelper
+
+  MENU_OPTIONS_TOP = { :account_details      => {:value => "account details",     :link => "/account/a0GU0000000c8xiMAA/details"},
+                       :school_work_info     => {:value => "school & work info",  :link => "/account/a0GU0000000c8xiMAA/school"},
+                       :edit_public_profile  => {:value => "edit public profile", :link => "#"},
+                       :change_password      => {:value => "change password",     :link => "/account/a0GU0000000c8xiMAA/reset_password"}}
+
+  MENU_OPTIONS_BOTTOM = { :my_challenges        => {:value => "my challenges",       :link => "/account/a0GU0000000c8xiMAA/challenges"},
+                          :discussions          => {:value => "discussions",         :link => "#"},
+                          :outstanding_reviews  => {:value => "outstanding reviews", :link => "#"}}
+
+  def build_menu(position,selected_item)
+    content = ""
+    eval("MENU_OPTIONS_#{position.upcase}").each do |item,options|
+      content  += "<li>"
+      if item.to_s == selected_item
+        content += "<a href='#' class='active'>#{options[:value]}</a>"
+      else
+        content += "<a href='#{options[:link]}' class=''>#{options[:value]}</a>"
+      end
+      content += "</li>"
+    end
+    return content.html_safe
+  end
+
   def work_options
     [["Please select ...",nil],["Contractor","Contractor"],["Employed","Employed"],["Unemployed","Unemployed"],["Prefer Not to Answer","Prefer Not to Answer"]]
   end
@@ -14,4 +38,5 @@ module AccountsHelper
   def gender_options
     [["Please select ...",nil],["Male","Male"],["Female","Female"]]
   end
+
 end

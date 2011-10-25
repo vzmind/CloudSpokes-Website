@@ -1,6 +1,6 @@
 
 class AccountsController < ApplicationController
-  before_filter :get_account
+  before_filter :get_account, :except => "require_password"
 
   def challenges
     @challenges          = Members.challenges(:name => @account["Name"])
@@ -38,5 +38,9 @@ class AccountsController < ApplicationController
 
   def get_account
     @account = Members.find(params[:id])
+  end
+
+  def require_password
+
   end
 end
