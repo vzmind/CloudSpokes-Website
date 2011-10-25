@@ -1,6 +1,6 @@
 
 class AccountsController < ApplicationController
-  before_filter :get_account, :except => "require_password"
+  before_filter :get_account, :except => ["require_password","reset_password"]
 
   def challenges
     @challenges          = Members.challenges(:name => @account["Name"])
@@ -36,11 +36,41 @@ class AccountsController < ApplicationController
     @account = Members.find(params[:id])
   end
 
-  def get_account
-    @account = Members.find(params[:id])
+  # Action to change the password of logged user (not activated)
+  def password
   end
 
+  # Send a passcode by mail for password reset
   def require_password
+    if params[:form_require_password]
+      response = Password.reset(params[:form_require_password][:name])
+      if response.message == "OK"
+        flash[:notice] = "An email has been sent to you"
+      else
+        flash[:notice] = "An error occured. Your password has not been reset"
+      end
+    end
+  end
 
+  # Check the passwode et new password and update it
+  def reset_password
+    if params[:form_reset_password]
+      passcode    = params[:form_reset_password][:passcode]
+      new_password = params[:form_reset_password][:new_password]
+
+      response = Password.update("testuser@cloudspokes.com.dev091",passcode,new_password)
+
+      if response.message == "password changed successfully."
+        flash[:notice] = "Your password has been updated. Please connect."
+        redirect_to url_for(:controller => 'content', :action => 'show') and return
+      else
+        flash[:notice] = "Error when trying to update your password. Please check your passcode and password."
+        redirect_to '/reset_password' and return
+      end
+    end
+  end
+
+  def get_account
+    @account = Members.find(params[:id])
   end
 end

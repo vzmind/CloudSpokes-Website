@@ -1,6 +1,7 @@
 require "members"
 require "recommendations"
 require "challenges"
+require "password"
 require 'will_paginate/array'
 
 class MembersController < ApplicationController
@@ -8,6 +9,7 @@ class MembersController < ApplicationController
   def index
     order_by  = params[:order_by] || "name"
     @members = Members.all(:select => DEFAULT_MEMBER_FIELDS,:order_by => order_by)
+    #
     # Sorting order hacked here cause not available in the CloudSpokes API
     if params[:order_by] == "total_wins__c" or params[:order_by] == "challenges_entered__c"
       @members = @members.reverse

@@ -3,7 +3,7 @@ module AccountsHelper
   MENU_OPTIONS_TOP = { :account_details      => {:value => "account details",     :link => "/account/a0GU0000000c8xiMAA/details"},
                        :school_work_info     => {:value => "school & work info",  :link => "/account/a0GU0000000c8xiMAA/school"},
                        :edit_public_profile  => {:value => "edit public profile", :link => "#"},
-                       :change_password      => {:value => "change password",     :link => "/account/a0GU0000000c8xiMAA/reset_password"}}
+                       :change_password      => {:value => "change password",     :link => "/account/a0GU0000000c8xiMAA/password"}}
 
   MENU_OPTIONS_BOTTOM = { :my_challenges        => {:value => "my challenges",       :link => "/account/a0GU0000000c8xiMAA/challenges"},
                           :discussions          => {:value => "discussions",         :link => "#"},
