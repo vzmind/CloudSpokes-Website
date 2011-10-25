@@ -1,7 +1,3 @@
-require "members"
-require "recommendations"
-require "challenges"
-require "password"
 require 'will_paginate/array'
 
 class MembersController < ApplicationController

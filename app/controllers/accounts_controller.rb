@@ -1,4 +1,3 @@
-
 class AccountsController < ApplicationController
   before_filter :get_account, :except => ["require_password","reset_password"]
 

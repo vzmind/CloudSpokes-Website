@@ -1,5 +1,3 @@
-require 'challenges'
-
 class ChallengesController < ApplicationController
 
   def index
