@@ -12,7 +12,6 @@ Cloudspokes::Application.routes.draw do
   match "/account/:id/school"         => "accounts#school"
   match "/account/:id/details"        => "accounts#details"
   match "/account/:id/password"       => "accounts#password"
-  match "/account/:id/reset_password" => "accounts#reset_password"
 
   match "/reset_password"             => "accounts#reset_password"
   match "/require_password"           => "accounts#require_password"
