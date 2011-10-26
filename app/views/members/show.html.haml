@@ -93,5 +93,5 @@
     - if @member["Website__c"]
       .website
         %strong Website :
-        %a{:href => @member["Website__c"], :target => "_blank"}
+        %a{:href => "http://"+@member["Website__c"], :target => "_blank"}
           = @member["Website__c"]
